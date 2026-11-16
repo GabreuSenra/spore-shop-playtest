@@ -14,7 +14,7 @@ let posts=0,redirectGets=0;const acks=new Map();
 const server=createServer(async(req,res)=>{
   try {
     if(req.method==='GET'&&req.url==='/probe'){res.writeHead(200);res.end('ok');return;}
-    if(req.method==='GET'&&req.url.startsWith('/reply/')){redirectGets++;const value=acks.get(req.url);assert.ok(value);res.writeHead(200,{'Content-Type':'application/json'});res.end(JSON.stringify(value));return;}
+    if(req.method==='GET'&&req.url.startsWith('/reply/')){let body='';for await(const chunk of req)body+=chunk;assert.equal(body,'','redirect GET must not retain the original POST body');assert.equal(req.headers['content-type'],undefined);assert.equal(req.headers.authorization,undefined);redirectGets++;const value=acks.get(req.url);assert.ok(value);res.writeHead(200,{'Content-Type':'application/json'});res.end(JSON.stringify(value));return;}
     assert.equal(req.method,'POST');assert.equal(req.url,'/exec');assert.equal(req.headers.authorization,undefined);
     let text='';for await(const chunk of req)text+=chunk;
     const envelope=JSON.parse(text);assert.equal(envelope.action,'ingest');assert.equal(envelope.token,'test-write-only');posts++;
