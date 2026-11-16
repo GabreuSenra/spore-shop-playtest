@@ -4,7 +4,7 @@ export function eligible(runs) {
     if (r.debug_used === true) blocked.add(r.run_id);
     if (!latest.has(r.run_id) || r.revision > latest.get(r.run_id).revision) latest.set(r.run_id,r);
   }
-  return [...latest.values()].filter(r=>!blocked.has(r.run_id) && r.debug_used === false && ['voltou','desmaiou'].includes(r.result));
+  return [...latest.values()].filter(r=>!blocked.has(r.run_id) && r.debug_used === false && ['voltou','desmaiou'].includes(r.result)).map(r=>({...r,relic_fragments:Number.isSafeInteger(r.relic_fragments)&&r.relic_fragments>=0?r.relic_fragments:null}));
 }
 
 export function median(values) {
@@ -32,11 +32,12 @@ export function registeredSaves(input) {
 export function summarize(input, catalog, filters = {}) {
   const runs = eligible(input).filter(r=>(!filters.build || r.build===filters.build) && (!filters.campaign || r.campaign===filters.campaign)
     && (!filters.region || r.region===filters.region) && (!filters.from || r.started_at.slice(0,10)>=filters.from) && (!filters.to || r.started_at.slice(0,10)<=filters.to));
-  const total = field => runs.reduce((s,r)=>s+r[field],0);
+  const total = field => runs.reduce((s,r)=>s+(r[field]??0),0);
+  const fragmentRuns=runs.filter(r=>r.relic_fragments!==null);
   const byRegion = catalog.regions.map(region=>{
     const rows=runs.filter(r=>r.region===region.id), n=rows.length;
     return {...region,n,spores:rows.reduce((s,r)=>s+r.spores,0)/(n||1),gold:rows.reduce((s,r)=>s+r.gold,0)/(n||1),relics:rows.reduce((s,r)=>s+r.relics,0)/(n||1),
-      medianGold:median(rows.map(r=>r.gold)),medianRelics:median(rows.map(r=>r.relics))};
+      fragmentSamples:rows.filter(r=>r.relic_fragments!==null).length,medianFragments:median(rows.filter(r=>r.relic_fragments!==null).map(r=>r.relic_fragments)),medianGold:median(rows.map(r=>r.gold)),medianRelics:median(rows.map(r=>r.relics))};
   });
   const players = new Map(), purchases = new Map(), skills = new Map(catalog.nodes.map(n=>[n.id,n]));
   for(const r of runs) {
@@ -62,7 +63,7 @@ export function summarize(input, catalog, filters = {}) {
     return {id,name,n:values.length,average:values.length?values.reduce((s,v)=>s+v.order,0)/values.length:null,
       first:values.filter(v=>v.order===1).length};
   }).sort((a,b)=>(a.average??Infinity)-(b.average??Infinity));
-  return {runs,byRegion,players:players.size,spores:total('spores'),gold:total('gold'),relics:total('relics'),spent:total('spent'),
+  return {runs,byRegion,players:players.size,spores:total('spores'),gold:total('gold'),relics:total('relics'),relic_fragments:fragmentRuns.length?total('relic_fragments'):null,fragmentSamples:fragmentRuns.length,spent:total('spent'),
     avgSpent:runs.length?total('spent')/runs.length:0, avgPurchase:purchases.size?total('spent')/purchases.size:0,
     purchases:purchases.size,heat,order,unlocks:catalog.regions.map(r=>({...r,n:[...players.values()].filter(ids=>ids.has(r.id)).length}))};
 }

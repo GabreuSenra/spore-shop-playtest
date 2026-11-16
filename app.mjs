@@ -5,6 +5,7 @@ import {renderColumnChart,regionColor,exactNumber} from './column-charts.mjs';
 const $=id=>document.getElementById(id);
 const format=new Intl.NumberFormat('pt-BR',{maximumFractionDigits:1});
 const fmt=v=>format.format(v);
+const fragmentText=v=>v===null?'não registrado':exactNumber(v);
 const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let catalog,raw=[],summary,mode='empty',token='',api='',page=0,busy=false;
 try {api=localStorage.getItem('spore-playtest-api')||'';} catch {}
@@ -30,6 +31,8 @@ function render(){
   for(const key of ['spores','gold','relics']) {
     $(key+'-total').textContent=fmt(s[key]);$(key+'-average').textContent=`${fmt(n?s[key]/n:0)} por run`;
   }
+  $('relic_fragments-total').textContent=s.relic_fragments===null?'—':fmt(s.relic_fragments);
+  $('relic_fragments-average').textContent=s.fragmentSamples?`${fmt(s.relic_fragments/s.fragmentSamples)} por run · n=${s.fragmentSamples}/${n}`:'Não registrado nas runs desta seleção';
   bars('spores-chart',s.byRegion.map(r=>({...r,note:`n=${r.n}`})),{field:'spores',value:(v,r)=>r.n?fmt(v):'—'});
   renderRegionalMedians();renderSaveProgression();
   bars('unlocks-chart',s.unlocks,{field:'n',max:s.players||1,value:v=>`${fmt(v)} / ${fmt(s.players)} · ${fmt(s.players?v/s.players*100:0)}%`});
@@ -40,12 +43,12 @@ function render(){
 }
 
 function renderRegionalMedians(){
-  for(const [metric,field,label] of [['gold','medianGold','Ouro vendido'],['relics','medianRelics','Relíquias coletadas']]) {
+  for(const [metric,field,label] of [['gold','medianGold','Ouro vendido'],['relics','medianRelics','Relíquias estouradas'],['relic_fragments','medianFragments','Fragmentos coletados']]) {
     const detail=$(metric+'-region-detail');detail.textContent='Passe o mouse ou selecione uma barra para ver o valor exato e a amostra.';
-    const rows=summary.byRegion.map(r=>({label:r.name,value:r[field],n:r.n,color:regionColor(catalog,r.id),
-      detail:`mediana de ${label.toLowerCase()} por run · ${r.n} runs` }));
+    const rows=summary.byRegion.map(r=>({label:r.name,value:r[field],n:metric==='relic_fragments'?r.fragmentSamples:r.n,color:regionColor(catalog,r.id),
+      detail:`mediana de ${label.toLowerCase()} por run · ${metric==='relic_fragments'?r.fragmentSamples:r.n} runs com a métrica registrada` }));
     renderColumnChart($(metric+'-region-chart'),rows,{title:`Mediana de ${label.toLowerCase()} por região`,
-      yLabel:`Mediana de ${label.toLowerCase()} / run`,xLabel:'Região',minimumStep:metric==='relics'?.5:0,
+      yLabel:`Mediana de ${label.toLowerCase()} / run`,xLabel:'Região',minimumStep:metric!=='gold'?.5:0,
       onInspect:(_,text)=>detail.textContent=text});
   }
 }
@@ -55,26 +58,26 @@ function renderSaveProgression(){
   setOptions('save-picker',saves.map(s=>[s.id,`Save ${s.id.slice(0,8)}…${s.id.slice(-4)} · ${s.count} runs · ${s.first.slice(0,10)}`]),'Selecione um save');
   if(saves.length===1&&!$('save-picker').value)$('save-picker').value=saves[0].id;
   const id=$('save-picker').value,rows=id?saveProgression(summary.runs,id):[];
-  $('save-summary').textContent=id?`Save ${id} · ${rows.length} runs na seleção · ${exactNumber(rows.reduce((sum,r)=>sum+r.gold,0))} de ouro · ${exactNumber(rows.reduce((sum,r)=>sum+r.relics,0))} relíquias`
+  $('save-summary').textContent=id?`Save ${id} · ${rows.length} runs na seleção · ${exactNumber(rows.reduce((sum,r)=>sum+r.gold,0))} de ouro · ${exactNumber(rows.reduce((sum,r)=>sum+r.relics,0))} relíquias estouradas · ${rows.some(r=>r.relic_fragments!==null)?exactNumber(rows.reduce((sum,r)=>sum+(r.relic_fragments??0),0)):"não registrado"} fragmentos (${rows.filter(r=>r.relic_fragments!==null).length}/${rows.length} runs com registro)`
     :saves.length?'Escolha um save para acompanhar seus ganhos e as mudanças de região.':'Nenhum save disponível nos filtros atuais. Conecte a planilha ou explore a demonstração.';
   $('region-legend').innerHTML=catalog.regions.filter(region=>rows.some(r=>r.region===region.id)).map(region=>`<span><i style="background:${regionColor(catalog,region.id)}"></i>${escape(region.name)}</span>`).join('');
-  $('save-run-detail').textContent=id?'Passe o mouse ou selecione uma barra para ver ouro, relíquias e região exatos da run.':'Selecione um save para explorar sua trajetória.';
-  for(const [metric,label] of [['gold','Ouro recebido'],['relics','Relíquias coletadas']]) {
+  $('save-run-detail').textContent=id?'Passe o mouse ou selecione uma barra para ver ouro, relíquias, fragmentos e região exatos da run.':'Selecione um save para explorar sua trajetória.';
+  for(const [metric,label] of [['gold','Ouro recebido'],['relics','Relíquias estouradas'],['relic_fragments','Fragmentos coletados']]) {
     const container=$(metric+'-save-chart');
     if(!rows.length){container.innerHTML='<p class="empty">Selecione um save com runs válidas para ver a progressão.</p>';continue;}
     const columns=rows.map(r=>{
       const region=catalog.regions.find(region=>region.id===r.region)?.name||r.region;
       return {label:`#${r.run_number}`,value:r[metric],color:regionColor(catalog,r.region),
-        detail:`${region} · ${r.started_at.replace('T',' ')} UTC · ouro: ${exactNumber(r.gold)} · relíquias: ${exactNumber(r.relics)}`};
+        detail:`${region} · ${r.started_at.replace('T',' ')} UTC · ouro: ${exactNumber(r.gold)} · relíquias estouradas: ${exactNumber(r.relics)} · fragmentos: ${fragmentText(r.relic_fragments)}`};
     });
     renderColumnChart(container,columns,{title:`${label} por run do save selecionado`,yLabel:`${label} na run`,xLabel:'Runs em ordem de registro',
-      perRun:true,minimumStep:metric==='relics'?1:0,onInspect:(_,text)=>$('save-run-detail').textContent=text});
+      perRun:true,minimumStep:metric!=='gold'?1:0,onInspect:(_,text)=>$('save-run-detail').textContent=text});
   }
 }
 function renderTable(){
   const rows=[...summary.runs].sort((a,b)=>b.started_at.localeCompare(a.started_at)||b.run_number-a.run_number);
   const pages=Math.max(1,Math.ceil(rows.length/15));page=Math.min(page,pages-1);
-  $('run-table').innerHTML=rows.slice(page*15,(page+1)*15).map(r=>`<tr><td>#${fmt(r.run_number)}<small>${escape(r.playtest_id.slice(0,8))}…${escape(r.playtest_id.slice(-4))}</small></td><td>${escape(r.started_at.replace('T',' ').slice(0,16))}<small>${escape(r.build)} · UTC</small></td><td>${escape(catalog.regions.find(x=>x.id===r.region)?.name||r.region)}</td><td>${fmt(r.spores)}</td><td>${fmt(r.gold)}</td><td>${fmt(r.relics)}</td><td>${fmt(r.spent)}</td><td>${r.result==='voltou'?'Retornou':'Desmaiou'}</td></tr>`).join('')||'<tr><td colspan="8" class="empty">Nenhuma run encontrada. Ajuste os filtros ou conecte a API.</td></tr>';
+  $('run-table').innerHTML=rows.slice(page*15,(page+1)*15).map(r=>`<tr><td>#${fmt(r.run_number)}<small>${escape(r.playtest_id.slice(0,8))}…${escape(r.playtest_id.slice(-4))}</small></td><td>${escape(r.started_at.replace('T',' ').slice(0,16))}<small>${escape(r.build)} · UTC</small></td><td>${escape(catalog.regions.find(x=>x.id===r.region)?.name||r.region)}</td><td>${fmt(r.spores)}</td><td>${fmt(r.gold)}</td><td>${fmt(r.relics)}</td><td>${r.relic_fragments===null?'—':fmt(r.relic_fragments)}</td><td>${fmt(r.spent)}</td><td>${r.result==='voltou'?'Retornou':'Desmaiou'}</td></tr>`).join('')||'<tr><td colspan="9" class="empty">Nenhuma run encontrada. Ajuste os filtros ou conecte a API.</td></tr>';
   $('table-count').textContent=`${fmt(rows.length)} runs na seleção`;$('page-label').textContent=`${page+1} / ${pages}`;
   $('page-prev').disabled=page===0;$('page-next').disabled=page>=pages-1;
 }
@@ -109,7 +112,8 @@ for(const event of ['pointerup','pointercancel'])$('tree').addEventListener(even
 $('zoom-in').onclick=()=>zoom(.75);$('zoom-out').onclick=()=>zoom(1.333);$('zoom-reset').onclick=()=>{camera=[...baseCamera];updateCamera();};
 $('tree-category').onchange=renderTree;
 $('save-picker').onchange=renderSaveProgression;
-for(const [source,target] of [['gold-save-chart','relics-save-chart'],['relics-save-chart','gold-save-chart']]) {
+const saveCharts=['gold-save-chart','relics-save-chart','relic_fragments-save-chart'];
+for(const source of saveCharts)for(const target of saveCharts.filter(id=>id!==source)) {
   $(source).addEventListener('scroll',event=>{
     const track=event.target,other=$(target).querySelector('.run-chart-track');
     if(track.classList.contains('run-chart-track')&&other&&Math.abs(other.scrollLeft-track.scrollLeft)>1)other.scrollLeft=track.scrollLeft;
@@ -145,9 +149,9 @@ async function connect(){
 $('connection-form').onsubmit=e=>{e.preventDefault();api=$('api-url').value.trim().replace(/\/+$/,'');token=$('api-token').value;$('api-token').value='';connect();};
 $('refresh').onclick=()=>{if(mode==='live')connect();else $('settings-open').click();};
 $('export').onclick=()=>{
-  const header=['fonte','run_id','save_anonimo','run','inicio_utc','build','campanha','regiao','esporos','ouro_vendido','reliquias','ouro_gasto','regioes_liberadas','compras_em_ordem'];
+  const header=['fonte','run_id','save_anonimo','run','inicio_utc','build','campanha','regiao','esporos','ouro_vendido','reliquias_estouradas','fragmentos_coletados','ouro_gasto','regioes_liberadas','compras_em_ordem'];
   const cell=v=>{let text=String(v);if(/^[\s]*[=+@-]/.test(text))text="'"+text;return '"'+text.replaceAll('"','""')+'"';};
-  const rows=summary.runs.map(r=>[mode,r.run_id,r.playtest_id,r.run_number,r.started_at,r.build,r.campaign,r.region,r.spores,r.gold,r.relics,r.spent,r.unlocked_regions.join(', '),JSON.stringify(r.purchases)]);
+  const rows=summary.runs.map(r=>[mode,r.run_id,r.playtest_id,r.run_number,r.started_at,r.build,r.campaign,r.region,r.spores,r.gold,r.relics,r.relic_fragments??'',r.spent,r.unlocked_regions.join(', '),JSON.stringify(r.purchases)]);
   const csv='\uFEFF'+[header,...rows].map(row=>row.map(cell).join(';')).join('\r\n');
   const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download=`spore-shop-${mode}-${new Date().toISOString().slice(0,10)}.csv`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
 };

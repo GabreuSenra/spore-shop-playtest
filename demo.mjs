@@ -19,7 +19,7 @@ export function demoRuns(catalog) {
       runs.push({schema:1,run_id:id(1000+player*100+run),revision:1,debug_used:false,playtest_id:id(player),run_number:run,tracking_from_start:true,
         build:player%4===0?'0.4-playtest.2':'0.4-playtest.1',campaign:'Demonstração',region:region.id,started_at:at,
         seconds:20+rand()*70,result:rand()>.06?'voltou':'desmaiou',spores:Math.round((70+run*28)*(1+region.tier*.3)*(.4+rand())),
-        gold:Math.round((50+run*15)*region.tier*(.4+rand())),relics:Math.floor(rand()*Math.min(8,run/2)),spent,
+        gold:Math.round((50+run*15)*region.tier*(.4+rand())),relics:Math.floor(rand()*Math.min(8,run/2)),relic_fragments:Math.floor(rand()*Math.min(30,run*2)),spent,
         unlocked_regions:catalog.regions.slice(0,depth+1).map(r=>r.id),purchases});
     }
   }

@@ -151,7 +151,7 @@ function validateRun_(p) {
   return identifier_(p.playtest_id) && typeof p.tracking_from_start==='boolean' && short_(p.build) && short_(p.campaign) && short_(p.region)
     && count_(p.run_number) && p.run_number>0 && ['voltou','desmaiou'].indexOf(p.result)>=0
     && typeof p.started_at==='string' && /^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d$/.test(p.started_at) && Number.isFinite(Date.parse(p.started_at))
-    && money_(p.seconds) && p.seconds<=86400 && count_(p.spores) && money_(p.gold) && count_(p.relics) && money_(p.spent)
+    && money_(p.seconds) && p.seconds<=86400 && count_(p.spores) && money_(p.gold) && count_(p.relics) && (p.relic_fragments === undefined || count_(p.relic_fragments)) && money_(p.spent)
     && Array.isArray(p.unlocked_regions) && p.unlocked_regions.length<=100 && p.unlocked_regions.every(short_)
     && Array.isArray(p.purchases) && p.purchases.length<=2000 && p.purchases.every(function(x){return x && short_(x.skill_id) && count_(x.level) && x.level>0 && count_(x.order) && x.order>0 && money_(x.gold);})
     && new Set(p.purchases.map(function(x){return x.order;})).size===p.purchases.length;
@@ -159,6 +159,7 @@ function validateRun_(p) {
 function cleanRun_(p) {
   var out={};['schema','run_id','revision','debug_used','playtest_id','run_number','tracking_from_start','build','campaign','region',
     'started_at','seconds','result','spores','gold','relics','spent','unlocked_regions'].forEach(function(k){out[k]=p[k];});
+  if (p.relic_fragments !== undefined) out.relic_fragments=p.relic_fragments;
   out.purchases=p.purchases.map(function(x){return {skill_id:x.skill_id,level:x.level,order:x.order,gold:x.gold};});return out;
 }
 function safeCell_(text) {return /^[=+\-@\t\r\n]/.test(String(text)) ? "'"+text : text;}

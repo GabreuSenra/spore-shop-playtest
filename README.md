@@ -23,3 +23,9 @@ Execute node --test tests/*.test.mjs. Os testes usam o código real do Apps Scri
 catalog.json é exportado da árvore do jogo. No checkout privado do jogo, execute node tools/playtest/export-catalog.mjs CAMINHO_DESTE_REPOSITORIO/catalog.json e faça commit do resultado neste repositório. Scripts Godot e configuração de envio permanecem no jogo.
 
 O teste HTTP opcional usa node scripts/test-godot-http.mjs CAMINHO_DO_GODOT CAMINHO_DO_JOGO, com receptor local temporário e armazenamento Google emulado.
+
+## Fragmentos de relíquia
+
+O painel separa relíquias estouradas (`relics`) de fragmentos coletados (`relic_fragments`), incluindo totais, mediana por região, progressão por save, tabela e CSV. Runs antigas sem esse campo aparecem como não registrado e não entram na amostra de fragmentos. Zero registrado continua sendo zero.
+
+Após atualizar o jogo, atualize também o Apps Script existente: substitua Código.gs pelo conteúdo de api/apps-script/Code.gs; salve; acesse Implantar > Gerenciar implantações > Editar (lápis); escolha Nova versão e clique em Implantar. Use a implantação existente para preservar a URL /exec, os tokens e a planilha. Não execute setup novamente nem crie outra planilha. Bridge.html e appsscript.json não mudaram nesta atualização. Não é necessário adicionar colunas: fragmentos são armazenados no payload já existente.

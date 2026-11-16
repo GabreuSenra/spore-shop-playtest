@@ -61,3 +61,11 @@ test('a save trajectory keeps exact gold and relic totals for each run and exclu
  assert.equal(registeredSaves(input).find(s=>s.id==='p1').count,2);
  assert.equal(saveProgression(input,'missing').length,0);
 });
+
+test('fragment medians distinguish an unrecorded value from a measured zero and stay independent of relics',()=>{
+ const s=summarize([run('old',{relics:9}),run('zero',{relics:2,relic_fragments:0}),run('new',{relics:1,relic_fragments:12}),run('debug',{relic_fragments:999,debug_used:true})],catalog);
+ assert.equal(s.relics,12);assert.equal(s.relic_fragments,12);assert.equal(s.fragmentSamples,2);
+ assert.equal(s.byRegion[0].medianFragments,6);assert.equal(s.byRegion[0].fragmentSamples,2);
+ assert.equal(s.byRegion[1].medianFragments,null);assert.equal(summarize([run('legacy')],catalog).relic_fragments,null);
+ const rows=saveProgression(s.runs,'p1');assert.deepEqual(rows.map(r=>r.relic_fragments),[12,null,0]);
+});

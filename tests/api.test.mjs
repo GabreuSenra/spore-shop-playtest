@@ -81,3 +81,13 @@ test('bridge enforces the configured parent origin and never places a credential
   const bad=e.context.doGet({parameter:{view:'bridge',parent_origin:'https://evil.test',channel}});assert.equal(bad.config.error,'origin_not_allowed');
   const health=JSON.parse(e.context.doGet({parameter:{}}).body);assert.equal(health.service,'spore-shop-playtest');assert.equal(health.runs,undefined);
 });
+
+test('fragments round-trip separately while legacy runs remain unrecorded and invalid fragment values are rejected',()=>{
+ const e=googleEnvironment();e.setup();
+ assert.equal(e.send(run({relics:2,relic_fragments:17})).ok,true);
+ assert.equal(e.read().runs[0].relics,2);assert.equal(e.read().runs[0].relic_fragments,17);
+ assert.equal(e.send(run({revision:2,relic_fragments:0})).ok,true);assert.equal(e.read().runs[0].relic_fragments,0);
+ for(const value of [-1,1.5,'5',null])assert.equal(e.send(run({revision:3,relic_fragments:value})).error,'invalid_payload');
+ assert.equal(e.send(run({run_id:id(88)})).ok,true);assert.equal(e.read().runs[1].relic_fragments,undefined);
+ e.send({schema:1,run_id:id(1),revision:3,debug_used:true});assert.equal(e.read().runs.length,1);
+});
