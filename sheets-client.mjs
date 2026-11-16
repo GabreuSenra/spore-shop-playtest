@@ -10,7 +10,10 @@ export function googleBridgeOrigin(origin){return /^https:\/\/(?:[a-z0-9-]+-)?sc
 const messages={unauthorized:'Credencial de leitura inválida.',origin_not_allowed:'Autorize a origem deste painel em ALLOWED_ORIGINS no Apps Script.',
   server_not_configured:'Execute setupPlaytest e confira as propriedades do Apps Script.',storage_error:'Não foi possível ler a planilha. Confira os cabeçalhos e o acesso do Apps Script.',
   invalid_cursor:'A paginação da planilha mudou. Atualize a consulta.',rpc_failed:'O Google não concluiu a leitura. Tente novamente.'};
-export function sheetsError(code){return new Error(messages[code]||'A integração com o Google Sheets retornou um erro.');}
+const rowReasons={missing_payload:'faltam os dados completos nas colunas ocultas S–Z',invalid_payload_chunk:'há conteúdo inesperado nas colunas ocultas S–Z',invalid_payload_json:'o JSON nas colunas ocultas S–Z está incompleto ou inválido',invalid_run:'os campos da run não atendem ao formato esperado',identity_mismatch:'o ID ou a revisão diverge entre as colunas e os dados completos'};
+export function sheetsError(code,details={}){
+  if(code==='corrupt_row'&&Number.isSafeInteger(details.row)&&details.row>=2)return new Error('Não foi possível ler a linha '+details.row+' da aba Runs: '+(rowReasons[details.reason]||'registro inconsistente')+'. Nenhum dado foi apagado.');
+  return new Error(messages[code]||'A integração com o Google Sheets retornou um erro.');}
 
 export function createSheetsClient(endpoint,{hostWindow=window,hostDocument=document,timeoutMs=30000}={}) {
   endpoint=sheetsEndpoint(endpoint);
@@ -30,7 +33,7 @@ export function createSheetsClient(endpoint,{hostWindow=window,hostDocument=docu
     if(event.source!==remote||event.origin!==remoteOrigin||data.type!=='spore-result')return;
     const request=pending.get(data.request_id);if(!request)return;
     pending.delete(data.request_id);clearTimeout(request.timer);
-    if(data.body?.ok!==true)request.reject(sheetsError(data.body?.error));else request.resolve(data.body);
+    if(data.body?.ok!==true)request.reject(sheetsError(data.body?.error,data.body));else request.resolve(data.body);
   }
   hostWindow.addEventListener('message',receive);
   readyTimer=setTimeout(()=>rejectReady(Error('O Apps Script não respondeu. Confira a publicação para Qualquer pessoa, a URL /exec e ALLOWED_ORIGINS.')),timeoutMs);

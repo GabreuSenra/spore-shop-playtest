@@ -91,3 +91,18 @@ test('fragments round-trip separately while legacy runs remain unrecorded and in
  assert.equal(e.send(run({run_id:id(88)})).ok,true);assert.equal(e.read().runs[1].relic_fragments,undefined);
  e.send({schema:1,run_id:id(1),revision:3,debug_used:true});assert.equal(e.read().runs.length,1);
 });
+
+test('blank cleared rows do not block later valid runs and partial records report the exact sheet row',()=>{
+ const e=googleEnvironment();e.setup();e.send(run());e.cells.push(Array(26).fill(''));e.send(run({run_id:id(77),relic_fragments:8}));
+ const before=JSON.stringify(e.cells);assert.equal(e.read().runs.length,2);assert.equal(JSON.stringify(e.cells),before);
+ e.cells[3].fill('',18);const missing=e.read();assert.equal(missing.error,'corrupt_row');assert.equal(missing.row,4);assert.equal(missing.reason,'missing_payload');
+ assert.equal(e.read('',e.properties.get('INGEST_TOKEN')).error,'unauthorized');
+});
+
+test('truncated payloads and identity changes produce safe precise diagnostics without leaking row contents',()=>{
+ for(const [change,reason] of [[row=>row[18]='j:{','invalid_payload_json'],[row=>row[18]='deleted','invalid_payload_chunk'],[row=>row[1]=99,'identity_mismatch'],[row=>row[18]='j:'+JSON.stringify(run({relic_fragments:null})),'invalid_run']]){
+  const e=googleEnvironment();e.setup();e.send(run());change(e.cells[1]);const result=e.read();
+  assert.equal(result.row,2);assert.equal(result.reason,reason);assert.deepEqual(Object.keys(result).sort(),['error','ok','reason','row']);
+ }
+ const e=googleEnvironment();e.setup();e.state.activeEmail='';assert.throws(()=>e.context.diagnosePlaytest(),/proprietaria/);
+});

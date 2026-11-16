@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import vm from 'node:vm';
 import {readFileSync} from 'node:fs';
 import {webcrypto} from 'node:crypto';
-import {createSheetsClient,sheetsEndpoint,googleBridgeOrigin} from '../sheets-client.mjs';
+import {createSheetsClient,sheetsEndpoint,googleBridgeOrigin,sheetsError} from '../sheets-client.mjs';
 import {googleEnvironment,run} from './helpers/fake-google.mjs';
 const endpoint='https://script.google.com/macros/s/testDeployment/exec';
 const googleOrigin='https://n-test-script.googleusercontent.com';
@@ -67,4 +67,10 @@ test('actual bridge reports a disallowed parent without transmitting a read cred
 test('a missing Google deployment times out cleanly',async()=>{
   const b=browser();const client=createSheetsClient(endpoint,{...b,timeoutMs:15});
   await assert.rejects(client.readPage('secret'),/não respondeu/);client.close();
+});
+
+test('row errors identify the affected row while ignoring arbitrary untrusted server text',()=>{
+ const message=sheetsError('corrupt_row',{row:4,reason:'missing_payload'}).message;
+ assert.match(message,/linha 4/);assert.match(message,/S–Z/);
+ assert.equal(sheetsError('corrupt_row',{row:4,reason:'private-token'}).message.includes('private-token'),false);
 });

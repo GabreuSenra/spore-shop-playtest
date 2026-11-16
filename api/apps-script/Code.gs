@@ -110,15 +110,18 @@ function readPlaytestPage(request) {
     var count = Math.min(PLAYTEST_.pageSize,Math.max(0,end-start+1));
     var rows = count ? sheet.getRange(start,1,count,PLAYTEST_.headers.length).getValues() : [];
     var runs=[];
-    rows.forEach(function(row) {
-      if (row[2] === true) return;
-      var payload = row.slice(18).map(function(cell){return cell ? String(cell).slice(2) : '';}).join('');
-      var run = JSON.parse(payload);
-      if (!validateRun_(run) || run.debug_used || run.run_id !== row[0] || run.revision !== Number(row[1])) throw new Error('corrupt_row');
-      runs.push(run);
+    rows.forEach(function(row,index) {
+      var decoded=decodeStoredRow_(row);
+      if (decoded.error) {
+        var error=new Error('corrupt_row');error.row=start+index;error.reason=decoded.error;throw error;
+      }
+      if (decoded.run) runs.push(decoded.run);
     });
     return {ok:true,runs:runs,next_cursor:start+count<=end ? String(start+count)+':'+String(end) : null};
-  } catch (error) {return {ok:false,error:error.message==='not_configured'?'server_not_configured':'storage_error'};}
+  } catch (error) {
+    if (error.message==='corrupt_row') return {ok:false,error:'corrupt_row',row:error.row,reason:error.reason};
+    return {ok:false,error:error.message==='not_configured'?'server_not_configured':'storage_error'};
+  }
 }
 
 function config_() {
@@ -171,4 +174,33 @@ function rowFor_(p,payload,revision) {
   row[17]=new Date().toISOString();
   for(var i=0;i<PLAYTEST_.chunks;i++)row.push(payload ? 'j:'+payload.slice(i*PLAYTEST_.chunkSize,(i+1)*PLAYTEST_.chunkSize) : '');
   return row;
+}
+
+// Blank rows can remain after manually clearing cells; never invent missing metrics.
+function decodeStoredRow_(row) {
+  if (row.every(function(value){return value==='' || value===null;})) return {};
+  if (row[2] === true) return {};
+  var chunks=row.slice(18);
+  if (chunks.every(function(value){return value==='' || value===null;})) return {error:'missing_payload'};
+  if (chunks.some(function(value){return value!=='' && value!==null && (typeof value!=='string' || value.slice(0,2)!=='j:');})) return {error:'invalid_payload_chunk'};
+  var payload=chunks.map(function(cell){return cell ? cell.slice(2) : '';}).join('');
+  var run;
+  try {run=JSON.parse(payload);} catch (_) {return {error:'invalid_payload_json'};}
+  if (!validateRun_(run)) return {error:'invalid_run'};
+  if (run.debug_used) return {};
+  if (run.run_id !== row[0] || run.revision !== Number(row[1])) return {error:'identity_mismatch'};
+  return {run:run};
+}
+
+// Editor-only, read-only diagnosis. Does not print tokens or individual run data.
+function diagnosePlaytest() {
+  var active=Session.getActiveUser().getEmail(),effective=Session.getEffectiveUser().getEmail();
+  if (!active || !effective || active!==effective) throw new Error('Execute diagnosePlaytest pelo editor na conta proprietaria.');
+  var config=config_(),cursor='',total=0,pages=0;
+  do {
+    var page=readPlaytestPage({token:config.read,cursor:cursor});pages++;
+    if (!page.ok) {console.log(JSON.stringify({ok:false,error:page.error,row:page.row,reason:page.reason}));return;}
+    total+=page.runs.length;cursor=page.next_cursor||'';
+  } while (cursor && pages<500);
+  console.log(JSON.stringify({ok:true,runs:total,pages:pages,complete:!cursor}));
 }
