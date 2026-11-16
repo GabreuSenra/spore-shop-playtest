@@ -1,0 +1,3700 @@
+{
+  "source": "data/upgrades/ProgressionTree.tres",
+  "categories": {
+    "suction": "Aspiração",
+    "breath": "Ferramenta de Sopro",
+    "uv": "Lanterna UV",
+    "filter": "Filtro",
+    "storage": "Armazenamento",
+    "sale": "Venda",
+    "value": "Valor dos esporos",
+    "fragments": "Fragmentos de Relíquias",
+    "relics": "Número de Relíquias"
+  },
+  "nodes": [
+    {
+      "id": "DescargaRapida1",
+      "name": "Mãos de Feirante I",
+      "description": "O Pumpkin Guy despeja o pote no balcão mais depressa.",
+      "x": 1652,
+      "y": -600,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "sale"
+      ],
+      "links": [
+        "VendaRapida8"
+      ]
+    },
+    {
+      "id": "DescargaRapida2",
+      "name": "Mãos de Feirante II",
+      "description": "O Pumpkin Guy despeja o pote no balcão mais depressa.",
+      "x": 1908,
+      "y": -1288,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "sale"
+      ],
+      "links": [
+        "VendaRapida11"
+      ]
+    },
+    {
+      "id": "ChuvaDeEsporos",
+      "name": "Chuva de Esporos",
+      "description": "Os cogumelos soltam ainda mais esporos.",
+      "x": 656,
+      "y": -1236,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "breath"
+      ],
+      "links": [
+        "EsporosGordos1"
+      ]
+    },
+    {
+      "id": "Placeholder5",
+      "name": "Placeholder 5",
+      "description": "",
+      "x": 568,
+      "y": -1476,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "ChuvaDeEsporos"
+      ]
+    },
+    {
+      "id": "Placeholder3",
+      "name": "Placeholder 3",
+      "description": "",
+      "x": 632,
+      "y": -1644,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "Placeholder5"
+      ]
+    },
+    {
+      "id": "Placeholder4",
+      "name": "Placeholder 4",
+      "description": "",
+      "x": 740,
+      "y": -1396,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "ChuvaDeEsporos"
+      ]
+    },
+    {
+      "id": "Placeholder2",
+      "name": "Placeholder 2",
+      "description": "",
+      "x": 828,
+      "y": -1552,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "Placeholder4"
+      ]
+    },
+    {
+      "id": "CogumelosBosqueUmido",
+      "name": "Canteiro do Bosque Úmido",
+      "description": "Nascem mais cogumelos no Bosque Úmido a cada expedição.",
+      "x": 688,
+      "y": 1008,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [],
+      "links": [
+        "ValorDosEsporos3"
+      ]
+    },
+    {
+      "id": "CogumelosGrutaDaGeada",
+      "name": "Canteiro da Gruta da Geada",
+      "description": "Nascem mais cogumelos na Gruta da Geada a cada expedição.",
+      "x": 1096,
+      "y": 1600,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [],
+      "links": [
+        "ValorDosEsporos7"
+      ]
+    },
+    {
+      "id": "CogumelosClareira",
+      "name": "Canteiro da Clareira",
+      "description": "Nascem mais cogumelos na Clareira a cada expedição.",
+      "x": 484,
+      "y": 708,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [],
+      "links": [
+        "ValorDosEsporos1"
+      ]
+    },
+    {
+      "id": "CogumelosGrutaLumen",
+      "name": "Canteiro da Gruta Lúmen",
+      "description": "Nascem mais cogumelos na Gruta Lúmen a cada expedição.",
+      "x": 892,
+      "y": 1304,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [],
+      "links": [
+        "ValorDosEsporos5"
+      ]
+    },
+    {
+      "id": "ValorDosEsporos9",
+      "name": "Safra Nobre I",
+      "description": "Cada esporo vendido vale mais no balcão.",
+      "x": 696,
+      "y": 2004,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "value"
+      ],
+      "links": [
+        "ValorDosEsporos8"
+      ]
+    },
+    {
+      "id": "ValorDosEsporos10",
+      "name": "Safra Nobre II",
+      "description": "Cada esporo vendido vale mais no balcão.",
+      "x": 756,
+      "y": 2172,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "value"
+      ],
+      "links": [
+        "ValorDosEsporos9"
+      ]
+    },
+    {
+      "id": "ValorDosEsporos11",
+      "name": "Safra Nobre III",
+      "description": "Cada esporo vendido vale mais no balcão. Libera o Coração do Micélio.",
+      "x": 816,
+      "y": 2344,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "value"
+      ],
+      "links": [
+        "ValorDosEsporos10"
+      ]
+    },
+    {
+      "id": "EsporoDourado2",
+      "name": "Esporo Dourado II",
+      "description": "Chance de um esporo sair dourado: ele vale 10 vezes mais.",
+      "x": 792,
+      "y": 1156,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "value"
+      ],
+      "links": [
+        "ValorDosEsporos4",
+        "CogumelosBosqueUmido"
+      ]
+    },
+    {
+      "id": "EsporoDourado3",
+      "name": "Esporo Dourado III",
+      "description": "Chance de um esporo sair dourado: ele vale 10 vezes mais.",
+      "x": 996,
+      "y": 1452,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "value"
+      ],
+      "links": [
+        "ValorDosEsporos6",
+        "CogumelosGrutaLumen"
+      ]
+    },
+    {
+      "id": "EsporoDourado1",
+      "name": "Esporo Dourado I",
+      "description": "Chance de um esporo sair dourado: ele vale 10 vezes mais.",
+      "x": 588,
+      "y": 860,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "value"
+      ],
+      "links": [
+        "CogumelosClareira",
+        "ValorDosEsporos2"
+      ]
+    },
+    {
+      "id": "Placeholder76",
+      "name": "Placeholder 76",
+      "description": "",
+      "x": -964,
+      "y": 388,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "Placeholder74"
+      ]
+    },
+    {
+      "id": "Placeholder86",
+      "name": "Placeholder 86",
+      "description": "",
+      "x": -1300,
+      "y": 520,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "Placeholder81"
+      ]
+    },
+    {
+      "id": "AlcanceDaSuccao4",
+      "name": "Sucção Potente IV",
+      "description": "O bico aspira os esporos de mais longe.",
+      "x": -736,
+      "y": -1796,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "suction"
+      ],
+      "links": [
+        "BocaLarga3"
+      ]
+    },
+    {
+      "id": "Placeholder56",
+      "name": "Placeholder 56",
+      "description": "",
+      "x": -512,
+      "y": -2056,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "AlcanceDaSuccao4"
+      ]
+    },
+    {
+      "id": "Placeholder55",
+      "name": "Placeholder 55",
+      "description": "",
+      "x": -556,
+      "y": -2232,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "Placeholder56"
+      ]
+    },
+    {
+      "id": "Placeholder45",
+      "name": "Placeholder 45",
+      "description": "",
+      "x": -804,
+      "y": -1964,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "AlcanceDaSuccao4"
+      ]
+    },
+    {
+      "id": "Placeholder44",
+      "name": "Placeholder 44",
+      "description": "",
+      "x": -872,
+      "y": -2128,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "Placeholder45"
+      ]
+    },
+    {
+      "id": "Placeholder35",
+      "name": "Placeholder 35",
+      "description": "",
+      "x": -940,
+      "y": -2296,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "Placeholder44"
+      ]
+    },
+    {
+      "id": "BocaLarga1",
+      "name": "Boca Larga I",
+      "description": "O cone de sucção do bico abre mais.",
+      "x": -344,
+      "y": -588,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [
+        "suction"
+      ],
+      "links": [
+        "Mother"
+      ]
+    },
+    {
+      "id": "BicoLongo1",
+      "name": "Bico Longo I",
+      "description": "O bico aspira de mais longe.",
+      "x": -436,
+      "y": -740,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [
+        "suction"
+      ],
+      "links": [
+        "BocaLarga1"
+      ]
+    },
+    {
+      "id": "RajadaDeEsporos1",
+      "name": "Rajada de Esporos I",
+      "description": "Os esporos de cada estouro voam mais longe e acendem mais cadeias.",
+      "x": -528,
+      "y": -896,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [
+        "breath"
+      ],
+      "links": [
+        "BicoLongo1"
+      ]
+    },
+    {
+      "id": "BocaLarga2",
+      "name": "Boca Larga II",
+      "description": "O cone de sucção do bico abre mais.",
+      "x": -620,
+      "y": -1052,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [
+        "suction"
+      ],
+      "links": [
+        "RajadaDeEsporos1"
+      ]
+    },
+    {
+      "id": "BicoLongo2",
+      "name": "Bico Longo II",
+      "description": "O bico aspira de mais longe.",
+      "x": -708,
+      "y": -1208,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [
+        "suction"
+      ],
+      "links": [
+        "BocaLarga2"
+      ]
+    },
+    {
+      "id": "RajadaDeEsporos2",
+      "name": "Rajada de Esporos II",
+      "description": "Os esporos de cada estouro voam mais longe e acendem mais cadeias.",
+      "x": -800,
+      "y": -1360,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [
+        "breath"
+      ],
+      "links": [
+        "BicoLongo2"
+      ]
+    },
+    {
+      "id": "BocaLarga3",
+      "name": "Boca Larga III",
+      "description": "O cone de sucção do bico abre mais.",
+      "x": -892,
+      "y": -1516,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [
+        "suction"
+      ],
+      "links": [
+        "RajadaDeEsporos2"
+      ]
+    },
+    {
+      "id": "BicoLongo3",
+      "name": "Bico Longo III",
+      "description": "O bico aspira de mais longe.",
+      "x": -984,
+      "y": -1672,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [
+        "suction"
+      ],
+      "links": [
+        "BocaLarga3"
+      ]
+    },
+    {
+      "id": "RajadaDeEsporos3",
+      "name": "Rajada de Esporos III",
+      "description": "Os esporos de cada estouro voam mais longe e acendem mais cadeias.",
+      "x": -1076,
+      "y": -1828,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "breath"
+      ],
+      "links": [
+        "BicoLongo3"
+      ]
+    },
+    {
+      "id": "Placeholder23",
+      "name": "Placeholder 23",
+      "description": "",
+      "x": -1324,
+      "y": -1656,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "BicoLongo3"
+      ]
+    },
+    {
+      "id": "AlcanceDaSuccao1",
+      "name": "Sucção Potente I",
+      "description": "O bico aspira os esporos de mais longe.",
+      "x": -536,
+      "y": -672,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "suction"
+      ],
+      "links": [
+        "BocaLarga1"
+      ]
+    },
+    {
+      "id": "BicoDuplo",
+      "name": "Bico Duplo",
+      "description": "Dois bicos aspirando juntos.",
+      "x": -876,
+      "y": -1092,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "suction"
+      ],
+      "links": [
+        "BocaLarga2"
+      ]
+    },
+    {
+      "id": "RaioDoSopro",
+      "name": "Fôlego Fundo",
+      "description": "O sopro alcança mais longe desde o começo da carga.",
+      "x": -932,
+      "y": -464,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "breath"
+      ],
+      "links": [
+        "AberturaDoSopro1"
+      ]
+    },
+    {
+      "id": "Placeholder67",
+      "name": "Placeholder 67",
+      "description": "",
+      "x": -340,
+      "y": -1932,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "Placeholder58"
+      ]
+    },
+    {
+      "id": "Placeholder63",
+      "name": "Placeholder 63",
+      "description": "",
+      "x": -372,
+      "y": -2108,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "Placeholder67"
+      ]
+    },
+    {
+      "id": "CargaRapida1",
+      "name": "Pulmão de Abóbora II",
+      "description": "O sopro carrega mais depressa.",
+      "x": -652,
+      "y": -812,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "breath"
+      ],
+      "links": [
+        "BicoLongo1"
+      ]
+    },
+    {
+      "id": "CargaRapida2",
+      "name": "Pulmão de Abóbora III",
+      "description": "O sopro carrega mais depressa.",
+      "x": -1100,
+      "y": -1372,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "breath"
+      ],
+      "links": [
+        "RajadaDeEsporos2"
+      ]
+    },
+    {
+      "id": "CargaRapida3",
+      "name": "Pulmão de Abóbora IV",
+      "description": "O sopro carrega mais depressa.",
+      "x": -1128,
+      "y": -1740,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "breath"
+      ],
+      "links": [
+        "BicoLongo3"
+      ]
+    },
+    {
+      "id": "SoproForte",
+      "name": "Sopro Forte",
+      "description": "O sopro carregado chega à força forte: estoura Chapéu de Geada e Lúmen.",
+      "x": -1024,
+      "y": -956,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "breath"
+      ],
+      "links": [
+        "BocaLarga2"
+      ]
+    },
+    {
+      "id": "ForcaDaCadeia1",
+      "name": "Estouro Contagiante I",
+      "description": "Cada cogumelo que estoura passa mais força para o próximo: os esporos voam mais longe.",
+      "x": -1072,
+      "y": -1160,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "breath"
+      ],
+      "links": [
+        "BicoLongo2"
+      ]
+    },
+    {
+      "id": "ForcaDaCadeia2",
+      "name": "Estouro Contagiante II",
+      "description": "Cada cogumelo que estoura passa mais força para o próximo: os esporos voam mais longe.",
+      "x": -1284,
+      "y": -1200,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "breath"
+      ],
+      "links": [
+        "ForcaDaCadeia1"
+      ]
+    },
+    {
+      "id": "Placeholder75",
+      "name": "Placeholder 75",
+      "description": "",
+      "x": -1092,
+      "y": 540,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "Placeholder74",
+        "Placeholder76"
+      ]
+    },
+    {
+      "id": "Placeholder80",
+      "name": "Placeholder 80",
+      "description": "",
+      "x": -1256,
+      "y": 620,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "Placeholder75"
+      ]
+    },
+    {
+      "id": "AberturaDoSopro1",
+      "name": "Leque de Vento I",
+      "description": "O cone do sopro abre mais.",
+      "x": -628,
+      "y": -588,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "breath"
+      ],
+      "links": [
+        "BocaLarga1"
+      ]
+    },
+    {
+      "id": "AberturaDoSopro2",
+      "name": "Leque de Vento II",
+      "description": "O cone do sopro abre mais.",
+      "x": -1212,
+      "y": -1512,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "breath"
+      ],
+      "links": [
+        "BocaLarga3"
+      ]
+    },
+    {
+      "id": "AberturaDoSopro3",
+      "name": "Leque de Vento III",
+      "description": "O cone do sopro abre mais.",
+      "x": -972,
+      "y": -1832,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "breath"
+      ],
+      "links": [
+        "BicoLongo3"
+      ]
+    },
+    {
+      "id": "AlcanceDaSuccao3",
+      "name": "Sucção Potente III",
+      "description": "O bico aspira os esporos de mais longe.",
+      "x": -276,
+      "y": -1576,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "suction"
+      ],
+      "links": [
+        "BicoLongo2"
+      ]
+    },
+    {
+      "id": "Placeholder58",
+      "name": "Placeholder 58",
+      "description": "",
+      "x": -308,
+      "y": -1752,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "AlcanceDaSuccao3"
+      ]
+    },
+    {
+      "id": "AlcanceDoSopro1",
+      "name": "Rajada Comprida I",
+      "description": "O sopro chega mais longe.",
+      "x": -1184,
+      "y": -300,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "breath"
+      ],
+      "links": [
+        "RaioDoSopro"
+      ]
+    },
+    {
+      "id": "AlcanceDoSopro2",
+      "name": "Rajada Comprida II",
+      "description": "O sopro chega mais longe.",
+      "x": -1036,
+      "y": -1584,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "breath"
+      ],
+      "links": [
+        "BocaLarga3"
+      ]
+    },
+    {
+      "id": "Placeholder74",
+      "name": "Placeholder 74",
+      "description": "",
+      "x": -800,
+      "y": 320,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "FiltroEconomico"
+      ]
+    },
+    {
+      "id": "Placeholder81",
+      "name": "Placeholder 81",
+      "description": "",
+      "x": -1132,
+      "y": 456,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "Placeholder76"
+      ]
+    },
+    {
+      "id": "Placeholder89",
+      "name": "Placeholder 89",
+      "description": "",
+      "x": -1468,
+      "y": 588,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "Placeholder86"
+      ]
+    },
+    {
+      "id": "Placeholder95",
+      "name": "Placeholder 95",
+      "description": "",
+      "x": -1632,
+      "y": 656,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "Placeholder89"
+      ]
+    },
+    {
+      "id": "Placeholder92",
+      "name": "Placeholder 92",
+      "description": "",
+      "x": -1416,
+      "y": 700,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "Placeholder80"
+      ]
+    },
+    {
+      "id": "FloradaCheia",
+      "name": "Florada Cheia",
+      "description": "Os cogumelos soltam bem mais esporos.",
+      "x": 488,
+      "y": -920,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "breath"
+      ],
+      "links": [
+        "EsporosFartos1"
+      ]
+    },
+    {
+      "id": "SoproMuitoForte",
+      "name": "Sopro Muito Forte",
+      "description": "O sopro carregado chega à força muito forte: estoura Chapéu de Brasa e Rei.",
+      "x": -880,
+      "y": -1676,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "breath"
+      ],
+      "links": [
+        "BocaLarga3"
+      ]
+    },
+    {
+      "id": "Placeholder60",
+      "name": "Placeholder 60",
+      "description": "",
+      "x": 784,
+      "y": -684,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "VendaRapida1"
+      ]
+    },
+    {
+      "id": "Placeholder51",
+      "name": "Placeholder 51",
+      "description": "",
+      "x": 920,
+      "y": -800,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "Placeholder60"
+      ]
+    },
+    {
+      "id": "Placeholder99",
+      "name": "Placeholder 99",
+      "description": "",
+      "x": -2472,
+      "y": 172,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "FiltroMaior11"
+      ]
+    },
+    {
+      "id": "ReliquiasBosqueUmido",
+      "name": "Veio do Bosque Úmido",
+      "description": "Mais relíquias escondidas no Bosque Úmido.",
+      "x": 1088,
+      "y": 552,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [
+        "relics"
+      ],
+      "links": [
+        "FragmentosMusgoEstelar1"
+      ]
+    },
+    {
+      "id": "FragmentosMusgoEstelar1",
+      "name": "Colheita de Musgo Estelar",
+      "description": "Cada relíquia de Musgo Estelar rende mais fragmentos.",
+      "x": 1016,
+      "y": 216,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [
+        "fragments"
+      ],
+      "links": [
+        "FragmentosMicelioLunar2"
+      ]
+    },
+    {
+      "id": "FragmentosMusgoEstelar2",
+      "name": "Mestre do Musgo Estelar",
+      "description": "Cada relíquia de Musgo Estelar rende muito mais fragmentos.",
+      "x": 1192,
+      "y": 252,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "fragments"
+      ],
+      "links": [
+        "FragmentosMusgoEstelar1"
+      ]
+    },
+    {
+      "id": "FiltroEconomico",
+      "name": "Filtro Paciente",
+      "description": "O filtro suja mais devagar em todas as regiões.",
+      "x": -680,
+      "y": 48,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "filter"
+      ],
+      "links": [
+        "Mother"
+      ]
+    },
+    {
+      "id": "Placeholder62",
+      "name": "Placeholder 62",
+      "description": "",
+      "x": -844,
+      "y": 1944,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "FocoUV9"
+      ]
+    },
+    {
+      "id": "RebrotaRapida1",
+      "name": "Micélio Fértil",
+      "description": "Os cogumelos estourados rebrotam mais depressa.",
+      "x": 1148,
+      "y": 804,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [],
+      "links": [
+        "CogumelosBosqueUmido",
+        "ReliquiasBosqueUmido"
+      ]
+    },
+    {
+      "id": "Adubo1",
+      "name": "Adubo",
+      "description": "Os cogumelos crescem de novo mais rápido depois de florescer.",
+      "x": 1736,
+      "y": 1216,
+      "maxLevel": 5,
+      "placeholder": false,
+      "categories": [],
+      "links": [
+        "ReliquiasGrutaDaGeada",
+        "CogumelosGrutaDaGeada"
+      ]
+    },
+    {
+      "id": "Placeholder38",
+      "name": "Placeholder 38",
+      "description": "",
+      "x": 1148,
+      "y": -416,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "VendaRapida2"
+      ]
+    },
+    {
+      "id": "Placeholder19",
+      "name": "Placeholder 19",
+      "description": "",
+      "x": 1256,
+      "y": -1232,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "Placeholder9",
+        "Placeholder26"
+      ]
+    },
+    {
+      "id": "Placeholder13",
+      "name": "Placeholder 13",
+      "description": "",
+      "x": 1384,
+      "y": -1360,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "Placeholder19"
+      ]
+    },
+    {
+      "id": "Placeholder1",
+      "name": "Placeholder 1",
+      "description": "",
+      "x": 804,
+      "y": -1764,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "Placeholder2",
+        "Placeholder3"
+      ]
+    },
+    {
+      "id": "FloracaoCritica1",
+      "name": "Floração Crítica I",
+      "description": "Acrescenta 3% de chance de uma floração ser crítica: o triplo de esporos.",
+      "x": -1412,
+      "y": -708,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "breath"
+      ],
+      "links": [
+        "BicoLongo2"
+      ]
+    },
+    {
+      "id": "PrimeiraFlorada",
+      "name": "Primeira Florada",
+      "description": "O primeiro cogumelo atingido por um sopro completamente carregado tem floração crítica garantida.",
+      "x": -1572,
+      "y": -788,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "breath"
+      ],
+      "links": [
+        "FloracaoCritica1"
+      ]
+    },
+    {
+      "id": "FloracaoCritica2",
+      "name": "Floração Crítica II",
+      "description": "Acrescenta 3% de chance de uma floração ser crítica: o triplo de esporos.",
+      "x": -1672,
+      "y": -556,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "breath"
+      ],
+      "links": [
+        "FloracaoCritica1"
+      ]
+    },
+    {
+      "id": "FloracaoCritica3",
+      "name": "Floração Crítica III",
+      "description": "Acrescenta 3% de chance de uma floração ser crítica: o triplo de esporos.",
+      "x": -1840,
+      "y": -612,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "breath"
+      ],
+      "links": [
+        "FloracaoCritica2"
+      ]
+    },
+    {
+      "id": "FloracaoCritica4",
+      "name": "Floração Crítica IV",
+      "description": "Acrescenta 3% de chance de uma floração ser crítica: o triplo de esporos.",
+      "x": -2012,
+      "y": -668,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "breath"
+      ],
+      "links": [
+        "FloracaoCritica3"
+      ]
+    },
+    {
+      "id": "VibracaoForte1",
+      "name": "Vibração Forte",
+      "description": "O sopro carregado empurra os esporos com mais força.",
+      "x": -1732,
+      "y": -308,
+      "maxLevel": 2,
+      "placeholder": false,
+      "categories": [
+        "breath"
+      ],
+      "links": [
+        "FloracaoCritica1"
+      ]
+    },
+    {
+      "id": "EcoDaFloresta",
+      "name": "Eco da Floresta",
+      "description": "A cada 25 estouros de uma cadeia, o último cogumelo solta um pulso grande.",
+      "x": -1908,
+      "y": -340,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "breath"
+      ],
+      "links": [
+        "VibracaoForte1"
+      ]
+    },
+    {
+      "id": "Placeholder39",
+      "name": "Placeholder 39",
+      "description": "",
+      "x": 1056,
+      "y": -920,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "Placeholder51"
+      ]
+    },
+    {
+      "id": "Placeholder94",
+      "name": "Placeholder 94",
+      "description": "",
+      "x": -2068,
+      "y": 476,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "FiltroMaior8"
+      ]
+    },
+    {
+      "id": "EsporosGordos1",
+      "name": "Esporos Gordos",
+      "description": "Os cogumelos soltam ainda mais esporos.",
+      "x": 572,
+      "y": -1076,
+      "maxLevel": 4,
+      "placeholder": false,
+      "categories": [
+        "breath"
+      ],
+      "links": [
+        "FloradaCheia"
+      ]
+    },
+    {
+      "id": "ValorDosEsporos1",
+      "name": "Esporos Polidos I",
+      "description": "Os esporos valem mais no balcão.",
+      "x": 224,
+      "y": 644,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [
+        "value"
+      ],
+      "links": [
+        "Mother"
+      ]
+    },
+    {
+      "id": "ValorDosEsporos3",
+      "name": "Esporos Polidos II",
+      "description": "Os esporos valem mais no balcão. O primeiro nível libera o Bosque Úmido.",
+      "x": 344,
+      "y": 984,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [
+        "value"
+      ],
+      "links": [
+        "ValorDosEsporos2"
+      ]
+    },
+    {
+      "id": "ValorDosEsporos5",
+      "name": "Esporos Polidos III",
+      "description": "Os esporos valem mais no balcão. O primeiro nível libera a Gruta Lúmen.",
+      "x": 460,
+      "y": 1324,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [
+        "value"
+      ],
+      "links": [
+        "ValorDosEsporos4"
+      ]
+    },
+    {
+      "id": "ValorDosEsporos7",
+      "name": "Esporos Polidos IV",
+      "description": "Os esporos valem mais no balcão. O primeiro nível libera a Gruta da Geada; complete todos os níveis para liberar a Caldeira Rubra.",
+      "x": 580,
+      "y": 1664,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [
+        "value"
+      ],
+      "links": [
+        "ValorDosEsporos6"
+      ]
+    },
+    {
+      "id": "ValorDosEsporos2",
+      "name": "Freguesia Fiel I",
+      "description": "Os fregueses pagam bem mais por cada esporo.",
+      "x": 284,
+      "y": 812,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "value"
+      ],
+      "links": [
+        "ValorDosEsporos1"
+      ]
+    },
+    {
+      "id": "ValorDosEsporos4",
+      "name": "Freguesia Fiel II",
+      "description": "Os fregueses pagam bem mais por cada esporo.",
+      "x": 400,
+      "y": 1152,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "value"
+      ],
+      "links": [
+        "ValorDosEsporos3"
+      ]
+    },
+    {
+      "id": "ValorDosEsporos6",
+      "name": "Freguesia Fiel III",
+      "description": "Os fregueses pagam bem mais por cada esporo.",
+      "x": 520,
+      "y": 1492,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "value"
+      ],
+      "links": [
+        "ValorDosEsporos5"
+      ]
+    },
+    {
+      "id": "ValorDosEsporos8",
+      "name": "Freguesia Fiel IV",
+      "description": "Os fregueses pagam bem mais por cada esporo.",
+      "x": 640,
+      "y": 1832,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "value"
+      ],
+      "links": [
+        "ValorDosEsporos7"
+      ]
+    },
+    {
+      "id": "PassoLigeiro1",
+      "name": "Passo de Abóbora I",
+      "description": "O Pumpkin Guy anda mais depressa.",
+      "x": 656,
+      "y": 556,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [],
+      "links": [
+        "ValorDosEsporos1",
+        "FragmentosMicelioLunar1"
+      ]
+    },
+    {
+      "id": "PassoLigeiro2",
+      "name": "Passo de Abóbora II",
+      "description": "O Pumpkin Guy anda mais depressa.",
+      "x": 928,
+      "y": 792,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [],
+      "links": [
+        "ValorDosEsporos3",
+        "FragmentosMusgoEstelar1"
+      ]
+    },
+    {
+      "id": "PassoLigeiro3",
+      "name": "Passo de Abóbora III",
+      "description": "O Pumpkin Guy anda mais depressa.",
+      "x": 1204,
+      "y": 1024,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [],
+      "links": [
+        "ValorDosEsporos5",
+        "FragmentosFossilLumen1"
+      ]
+    },
+    {
+      "id": "Placeholder34",
+      "name": "Placeholder 34",
+      "description": "",
+      "x": -1160,
+      "y": 2192,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "FocoUV12"
+      ]
+    },
+    {
+      "id": "ReliquiasGrutaLumen",
+      "name": "Veio da Gruta Lúmen",
+      "description": "Mais relíquias escondidas na Gruta Lúmen.",
+      "x": 1408,
+      "y": 716,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [
+        "relics"
+      ],
+      "links": [
+        "FragmentosFossilLumen1"
+      ]
+    },
+    {
+      "id": "FragmentosFossilLumen1",
+      "name": "Colheita de Fóssil Lúmen",
+      "description": "Cada relíquia de Fóssil Lúmen rende mais fragmentos.",
+      "x": 1368,
+      "y": 292,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [
+        "fragments"
+      ],
+      "links": [
+        "FragmentosMusgoEstelar2"
+      ]
+    },
+    {
+      "id": "FragmentosFossilLumen2",
+      "name": "Mestre do Fóssil Lúmen",
+      "description": "Cada relíquia de Fóssil Lúmen rende muito mais fragmentos.",
+      "x": 1544,
+      "y": 328,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "fragments"
+      ],
+      "links": [
+        "FragmentosFossilLumen1"
+      ]
+    },
+    {
+      "id": "Placeholder98",
+      "name": "Placeholder 98",
+      "description": "",
+      "x": 876,
+      "y": 2512,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "ValorDosEsporos11"
+      ]
+    },
+    {
+      "id": "ReliquiasGrutaDaGeada",
+      "name": "Veio da Gruta da Geada",
+      "description": "Mais relíquias escondidas na Gruta da Geada.",
+      "x": 1728,
+      "y": 880,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [
+        "relics"
+      ],
+      "links": [
+        "FragmentosEstilhacoDeGeada1"
+      ]
+    },
+    {
+      "id": "FragmentosEstilhacoDeGeada1",
+      "name": "Colheita de Estilhaço de Geada",
+      "description": "Cada relíquia de Estilhaço de Geada rende mais fragmentos.",
+      "x": 1720,
+      "y": 364,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [
+        "fragments"
+      ],
+      "links": [
+        "FragmentosFossilLumen2"
+      ]
+    },
+    {
+      "id": "FragmentosEstilhacoDeGeada2",
+      "name": "Mestre do Estilhaço de Geada",
+      "description": "Cada relíquia de Estilhaço de Geada rende muito mais fragmentos.",
+      "x": 1896,
+      "y": 404,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "fragments"
+      ],
+      "links": [
+        "FragmentosEstilhacoDeGeada1"
+      ]
+    },
+    {
+      "id": "Placeholder82",
+      "name": "Placeholder 82",
+      "description": "",
+      "x": -1336,
+      "y": 420,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "FiltroMaior3"
+      ]
+    },
+    {
+      "id": "Placeholder87",
+      "name": "Placeholder 87",
+      "description": "",
+      "x": -1508,
+      "y": 472,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "Placeholder82"
+      ]
+    },
+    {
+      "id": "Descarte1",
+      "name": "Descarte I",
+      "description": "Uma vez por expedição, o filtro cheio descarta 10% adicionais por nível de Descarte: retorna a 90%, 80%, 70%, 60% e 50%.",
+      "x": -1384,
+      "y": 208,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "filter"
+      ],
+      "links": [
+        "FiltroMaior3"
+      ]
+    },
+    {
+      "id": "Descarte3",
+      "name": "Descarte III",
+      "description": "Uma vez por expedição, o filtro cheio descarta 10% adicionais por nível de Descarte: retorna a 90%, 80%, 70%, 60% e 50%.",
+      "x": -1740,
+      "y": 260,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "filter"
+      ],
+      "links": [
+        "FiltroMaior5"
+      ]
+    },
+    {
+      "id": "Descarte5",
+      "name": "Descarte V",
+      "description": "Uma vez por expedição, o filtro cheio descarta 10% adicionais por nível de Descarte: retorna a 90%, 80%, 70%, 60% e 50%.",
+      "x": -2096,
+      "y": 312,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "filter"
+      ],
+      "links": [
+        "FiltroMaior8"
+      ]
+    },
+    {
+      "id": "Descarte2",
+      "name": "Descarte II",
+      "description": "Uma vez por expedição, o filtro cheio descarta 10% adicionais por nível de Descarte: retorna a 90%, 80%, 70%, 60% e 50%.",
+      "x": -1564,
+      "y": 232,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "filter"
+      ],
+      "links": [
+        "Descarte1",
+        "FiltroMaior4"
+      ]
+    },
+    {
+      "id": "Descarte4",
+      "name": "Descarte IV",
+      "description": "Uma vez por expedição, o filtro cheio descarta 10% adicionais por nível de Descarte: retorna a 90%, 80%, 70%, 60% e 50%.",
+      "x": -1920,
+      "y": 284,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "filter"
+      ],
+      "links": [
+        "FiltroMaior6",
+        "Descarte3"
+      ]
+    },
+    {
+      "id": "Placeholder97",
+      "name": "Placeholder 97",
+      "description": "",
+      "x": -2276,
+      "y": 340,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "FiltroMaior9"
+      ]
+    },
+    {
+      "id": "FiltroMaior1",
+      "name": "Filtro Reforçado I",
+      "description": "O filtro aguenta mais esporos antes de entupir: mais tempo em cada expedição.",
+      "x": -856,
+      "y": 60,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [
+        "filter"
+      ],
+      "links": [
+        "FiltroEconomico"
+      ]
+    },
+    {
+      "id": "FiltroMaior2",
+      "name": "Filtro Reforçado II",
+      "description": "O filtro aguenta mais esporos antes de entupir: mais tempo em cada expedição.",
+      "x": -1036,
+      "y": 72,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [
+        "filter"
+      ],
+      "links": [
+        "FiltroMaior1"
+      ]
+    },
+    {
+      "id": "FiltroMaior3",
+      "name": "Filtro Reforçado III",
+      "description": "O filtro aguenta mais esporos antes de entupir: mais tempo em cada expedição.",
+      "x": -1216,
+      "y": 84,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [
+        "filter"
+      ],
+      "links": [
+        "FiltroMaior2"
+      ]
+    },
+    {
+      "id": "FiltroMaior4",
+      "name": "Filtro Reforçado IV",
+      "description": "O filtro aguenta mais esporos antes de entupir: mais tempo em cada expedição.",
+      "x": -1396,
+      "y": 96,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [
+        "filter"
+      ],
+      "links": [
+        "FiltroMaior3"
+      ]
+    },
+    {
+      "id": "FiltroMaior5",
+      "name": "Filtro Reforçado V",
+      "description": "O filtro aguenta mais esporos antes de entupir: mais tempo em cada expedição.",
+      "x": -1576,
+      "y": 112,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [
+        "filter"
+      ],
+      "links": [
+        "FiltroMaior4"
+      ]
+    },
+    {
+      "id": "FiltroMaior6",
+      "name": "Filtro Reforçado VI",
+      "description": "O filtro aguenta mais esporos antes de entupir: mais tempo em cada expedição.",
+      "x": -1756,
+      "y": 124,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [
+        "filter"
+      ],
+      "links": [
+        "FiltroMaior5"
+      ]
+    },
+    {
+      "id": "FiltroMaior8",
+      "name": "Filtro Reforçado VII",
+      "description": "O filtro aguenta mais esporos antes de entupir: mais tempo em cada expedição.",
+      "x": -1936,
+      "y": 136,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [
+        "filter"
+      ],
+      "links": [
+        "FiltroMaior6"
+      ]
+    },
+    {
+      "id": "FiltroMaior9",
+      "name": "Filtro Reforçado VIII",
+      "description": "O filtro aguenta mais esporos antes de entupir: mais tempo em cada expedição.",
+      "x": -2116,
+      "y": 148,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [
+        "filter"
+      ],
+      "links": [
+        "FiltroMaior8"
+      ]
+    },
+    {
+      "id": "FiltroMaior11",
+      "name": "Filtro Reforçado IX",
+      "description": "O filtro aguenta mais esporos antes de entupir: mais tempo em cada expedição.",
+      "x": -2296,
+      "y": 160,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "filter"
+      ],
+      "links": [
+        "FiltroMaior9"
+      ]
+    },
+    {
+      "id": "FiltroMaior7",
+      "name": "Malha Fina I",
+      "description": "Aumenta a capacidade total do filtro.",
+      "x": -1716,
+      "y": 396,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "filter"
+      ],
+      "links": [
+        "FiltroMaior5"
+      ]
+    },
+    {
+      "id": "FiltroMaior10",
+      "name": "Malha Fina II",
+      "description": "Aumenta a capacidade total do filtro.",
+      "x": -2240,
+      "y": 516,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "filter"
+      ],
+      "links": [
+        "FiltroMaior9"
+      ]
+    },
+    {
+      "id": "AlcanceDaSuccao2",
+      "name": "Sucção Potente II",
+      "description": "O bico aspira os esporos de mais longe.",
+      "x": -1148,
+      "y": -800,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "suction"
+      ],
+      "links": [
+        "BocaLarga2"
+      ]
+    },
+    {
+      "id": "BateriaUV2",
+      "name": "Pilha de Vaga-lume I",
+      "description": "A lanterna fica acesa por mais tempo.",
+      "x": -848,
+      "y": 600,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "uv"
+      ],
+      "links": [
+        "BateriaUV1"
+      ]
+    },
+    {
+      "id": "BateriaUV4",
+      "name": "Pilha de Vaga-lume II",
+      "description": "A lanterna fica acesa por mais tempo.",
+      "x": -1144,
+      "y": 808,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "uv"
+      ],
+      "links": [
+        "BateriaUV3"
+      ]
+    },
+    {
+      "id": "AlcanceDaRefracao1",
+      "name": "Prisma Largo I",
+      "description": "O facho salta para relíquias mais distantes.",
+      "x": -1216,
+      "y": 1012,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "uv"
+      ],
+      "links": [
+        "RefracaoUV1"
+      ]
+    },
+    {
+      "id": "AlcanceDaRefracao2",
+      "name": "Prisma Largo II",
+      "description": "O facho salta para relíquias mais distantes.",
+      "x": -1388,
+      "y": 1352,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "uv"
+      ],
+      "links": [
+        "RefracaoUV3"
+      ]
+    },
+    {
+      "id": "RefracaoUV1",
+      "name": "Prisma I",
+      "description": "O facho salta para mais uma relíquia próxima.",
+      "x": -1004,
+      "y": 976,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "uv"
+      ],
+      "links": [
+        "FocoUV1"
+      ]
+    },
+    {
+      "id": "RefracaoUV2",
+      "name": "Prisma II",
+      "description": "O facho salta para mais uma relíquia próxima.",
+      "x": -1132,
+      "y": 1104,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "uv"
+      ],
+      "links": [
+        "RefracaoUV1",
+        "FocoUV4"
+      ]
+    },
+    {
+      "id": "RefracaoUV3",
+      "name": "Prisma III",
+      "description": "O facho salta para mais uma relíquia próxima.",
+      "x": -1260,
+      "y": 1228,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "uv"
+      ],
+      "links": [
+        "FocoUV6",
+        "RefracaoUV2"
+      ]
+    },
+    {
+      "id": "PulsoUV1",
+      "name": "Pulso Ligeiro I",
+      "description": "O pulso que revela as relíquias volta mais depressa.",
+      "x": -564,
+      "y": 752,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "uv"
+      ],
+      "links": [
+        "FocoUV1"
+      ]
+    },
+    {
+      "id": "PulsoUV2",
+      "name": "Pulso Ligeiro II",
+      "description": "O pulso que revela as relíquias volta mais depressa.",
+      "x": -1160,
+      "y": 1324,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "uv"
+      ],
+      "links": [
+        "FocoUV6"
+      ]
+    },
+    {
+      "id": "FocoUV1",
+      "name": "Foco Intenso I",
+      "description": "O facho quebra as relíquias mais depressa.",
+      "x": -404,
+      "y": 760,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [
+        "uv"
+      ],
+      "links": [
+        "LanternaUV"
+      ]
+    },
+    {
+      "id": "FocoUV2",
+      "name": "Foco Intenso II",
+      "description": "O facho quebra as relíquias mais depressa.",
+      "x": -488,
+      "y": 920,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [
+        "uv"
+      ],
+      "links": [
+        "FocoUV1"
+      ]
+    },
+    {
+      "id": "FocoUV4",
+      "name": "Foco Intenso III",
+      "description": "O facho quebra as relíquias mais depressa.",
+      "x": -572,
+      "y": 1080,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [
+        "uv"
+      ],
+      "links": [
+        "FocoUV2"
+      ]
+    },
+    {
+      "id": "FocoUV5",
+      "name": "Foco Intenso IV",
+      "description": "O facho quebra as relíquias mais depressa.",
+      "x": -656,
+      "y": 1236,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [
+        "uv"
+      ],
+      "links": [
+        "FocoUV4"
+      ]
+    },
+    {
+      "id": "FocoUV6",
+      "name": "Foco Intenso V",
+      "description": "O facho quebra as relíquias mais depressa.",
+      "x": -740,
+      "y": 1396,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [
+        "uv"
+      ],
+      "links": [
+        "FocoUV5"
+      ]
+    },
+    {
+      "id": "FocoUV8",
+      "name": "Foco Intenso VI",
+      "description": "O facho quebra as relíquias mais depressa.",
+      "x": -824,
+      "y": 1556,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [
+        "uv"
+      ],
+      "links": [
+        "FocoUV6"
+      ]
+    },
+    {
+      "id": "FocoUV9",
+      "name": "Foco Intenso VII",
+      "description": "O facho quebra as relíquias mais depressa.",
+      "x": -908,
+      "y": 1716,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [
+        "uv"
+      ],
+      "links": [
+        "FocoUV8"
+      ]
+    },
+    {
+      "id": "FocoUV10",
+      "name": "Foco Intenso VIII",
+      "description": "O facho quebra as relíquias mais depressa.",
+      "x": -992,
+      "y": 1872,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [
+        "uv"
+      ],
+      "links": [
+        "FocoUV9"
+      ]
+    },
+    {
+      "id": "FocoUV12",
+      "name": "Foco Intenso IX",
+      "description": "O facho quebra as relíquias mais depressa.",
+      "x": -1076,
+      "y": 2032,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "uv"
+      ],
+      "links": [
+        "FocoUV10"
+      ]
+    },
+    {
+      "id": "Placeholder64",
+      "name": "Placeholder 64",
+      "description": "",
+      "x": -404,
+      "y": 1340,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "FocoUV4"
+      ]
+    },
+    {
+      "id": "Placeholder61",
+      "name": "Placeholder 61",
+      "description": "",
+      "x": -440,
+      "y": 1704,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "Placeholder65"
+      ]
+    },
+    {
+      "id": "Placeholder65",
+      "name": "Placeholder 65",
+      "description": "",
+      "x": -424,
+      "y": 1520,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "Placeholder64"
+      ]
+    },
+    {
+      "id": "Placeholder66",
+      "name": "Placeholder 66",
+      "description": "",
+      "x": -572,
+      "y": 1664,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "Placeholder65"
+      ]
+    },
+    {
+      "id": "Placeholder69",
+      "name": "Placeholder 69",
+      "description": "",
+      "x": -304,
+      "y": 1732,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "Placeholder65"
+      ]
+    },
+    {
+      "id": "FocoUV3",
+      "name": "Lente Polida I",
+      "description": "O facho quebra as relíquias mais depressa.",
+      "x": -484,
+      "y": 1120,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "uv"
+      ],
+      "links": [
+        "FocoUV2"
+      ]
+    },
+    {
+      "id": "FocoUV7",
+      "name": "Lente Polida II",
+      "description": "O facho quebra as relíquias mais depressa.",
+      "x": -1056,
+      "y": 1408,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "uv"
+      ],
+      "links": [
+        "FocoUV6"
+      ]
+    },
+    {
+      "id": "FocoUV11",
+      "name": "Lente Polida III",
+      "description": "O facho quebra as relíquias mais depressa.",
+      "x": -1232,
+      "y": 1944,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "uv"
+      ],
+      "links": [
+        "FocoUV10"
+      ]
+    },
+    {
+      "id": "Placeholder54",
+      "name": "Placeholder 54",
+      "description": "",
+      "x": -940,
+      "y": 1488,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "FocoUV6"
+      ]
+    },
+    {
+      "id": "Placeholder41",
+      "name": "Placeholder 41",
+      "description": "",
+      "x": -1280,
+      "y": 1456,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "Placeholder54"
+      ]
+    },
+    {
+      "id": "Placeholder40",
+      "name": "Placeholder 40",
+      "description": "",
+      "x": -1164,
+      "y": 1552,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "Placeholder54"
+      ]
+    },
+    {
+      "id": "Placeholder29",
+      "name": "Placeholder 29",
+      "description": "",
+      "x": -1272,
+      "y": 1696,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "Placeholder40"
+      ]
+    },
+    {
+      "id": "Placeholder30",
+      "name": "Placeholder 30",
+      "description": "",
+      "x": -1400,
+      "y": 1592,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "Placeholder41"
+      ]
+    },
+    {
+      "id": "Placeholder52",
+      "name": "Placeholder 52",
+      "description": "",
+      "x": -628,
+      "y": 1448,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "FocoUV5"
+      ]
+    },
+    {
+      "id": "Placeholder28",
+      "name": "Placeholder 28",
+      "description": "",
+      "x": -772,
+      "y": 1780,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "Placeholder53"
+      ]
+    },
+    {
+      "id": "Placeholder53",
+      "name": "Placeholder 53",
+      "description": "",
+      "x": -700,
+      "y": 1616,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "Placeholder52"
+      ]
+    },
+    {
+      "id": "RaioDaLanterna1",
+      "name": "Lente Larga I",
+      "description": "O facho da lanterna fica maior.",
+      "x": -336,
+      "y": 984,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "uv"
+      ],
+      "links": [
+        "FocoUV1"
+      ]
+    },
+    {
+      "id": "RaioDaLanterna2",
+      "name": "Lente Larga II",
+      "description": "O facho da lanterna fica maior.",
+      "x": -556,
+      "y": 1284,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "uv"
+      ],
+      "links": [
+        "FocoUV4"
+      ]
+    },
+    {
+      "id": "RaioDaLanterna3",
+      "name": "Lente Larga III",
+      "description": "O facho da lanterna fica maior.",
+      "x": -1040,
+      "y": 1640,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "uv"
+      ],
+      "links": [
+        "FocoUV8"
+      ]
+    },
+    {
+      "id": "RaioDaLanterna4",
+      "name": "Lente Larga IV",
+      "description": "O facho da lanterna fica maior.",
+      "x": -1516,
+      "y": 1728,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "uv"
+      ],
+      "links": [
+        "FocoUV10"
+      ]
+    },
+    {
+      "id": "RecargaUV1",
+      "name": "Recarga Solar I",
+      "description": "A lanterna recarrega mais depressa depois de apagar.",
+      "x": -1048,
+      "y": 624,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "uv"
+      ],
+      "links": [
+        "BateriaUV2",
+        "BateriaUV1"
+      ]
+    },
+    {
+      "id": "RecargaUV2",
+      "name": "Recarga Solar II",
+      "description": "A lanterna recarrega mais depressa depois de apagar.",
+      "x": -1204,
+      "y": 716,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "uv"
+      ],
+      "links": [
+        "RecargaUV1"
+      ]
+    },
+    {
+      "id": "BateriaUV1",
+      "name": "Bateria UV I",
+      "description": "A lanterna fica acesa por mais tempo.",
+      "x": -700,
+      "y": 496,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "uv"
+      ],
+      "links": [
+        "FiltroEconomico",
+        "LanternaUV"
+      ]
+    },
+    {
+      "id": "BateriaUV3",
+      "name": "Bateria UV II",
+      "description": "A lanterna fica acesa por mais tempo.",
+      "x": -996,
+      "y": 704,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "uv"
+      ],
+      "links": [
+        "BateriaUV2"
+      ]
+    },
+    {
+      "id": "BateriaUV5",
+      "name": "Bateria UV III",
+      "description": "A lanterna fica acesa por mais tempo.",
+      "x": -1288,
+      "y": 912,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "uv"
+      ],
+      "links": [
+        "BateriaUV4"
+      ]
+    },
+    {
+      "id": "BateriaUV6",
+      "name": "Bateria UV IV",
+      "description": "A lanterna fica acesa por mais tempo.",
+      "x": -1436,
+      "y": 1016,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "uv"
+      ],
+      "links": [
+        "BateriaUV5"
+      ]
+    },
+    {
+      "id": "LanternaUV",
+      "name": "Lanterna UV",
+      "description": "Uma lanterna que revela as relíquias escondidas e as quebra com o facho.",
+      "x": -556,
+      "y": 392,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "uv"
+      ],
+      "links": [
+        "Mother"
+      ]
+    },
+    {
+      "id": "PulsoUV3",
+      "name": "Pulso Relâmpago",
+      "description": "O pulso que revela as relíquias volta muito mais depressa.",
+      "x": -688,
+      "y": 2004,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "uv"
+      ],
+      "links": [
+        "FocoUV9"
+      ]
+    },
+    {
+      "id": "RecargaUV3",
+      "name": "Recarga Instantânea",
+      "description": "A lanterna recarrega quase na hora.",
+      "x": -1356,
+      "y": 808,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "uv"
+      ],
+      "links": [
+        "RecargaUV2"
+      ]
+    },
+    {
+      "id": "PoteMaior1",
+      "name": "Potes na Mochila I",
+      "description": "O Pumpkin Guy leva mais potes: cabem mais esporos por expedição.",
+      "x": 320,
+      "y": -600,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "storage"
+      ],
+      "links": [
+        "Mother"
+      ]
+    },
+    {
+      "id": "PoteMaior2",
+      "name": "Potes na Mochila II",
+      "description": "O Pumpkin Guy leva mais potes: cabem mais esporos por expedição.",
+      "x": 836,
+      "y": -192,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "storage"
+      ],
+      "links": [
+        "PoteMaior1"
+      ]
+    },
+    {
+      "id": "PoteMaior4",
+      "name": "Potes na Mochila III",
+      "description": "O Pumpkin Guy leva mais potes: cabem mais esporos por expedição.",
+      "x": 1012,
+      "y": -232,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "storage"
+      ],
+      "links": [
+        "PoteMaior2"
+      ]
+    },
+    {
+      "id": "PoteMaior7",
+      "name": "Potes na Mochila IV",
+      "description": "O Pumpkin Guy leva mais potes: cabem mais esporos por expedição.",
+      "x": 1188,
+      "y": -276,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "storage"
+      ],
+      "links": [
+        "PoteMaior4"
+      ]
+    },
+    {
+      "id": "PoteMaior9",
+      "name": "Potes na Mochila V",
+      "description": "O Pumpkin Guy leva mais potes: cabem mais esporos por expedição.",
+      "x": 1364,
+      "y": -316,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "storage"
+      ],
+      "links": [
+        "PoteMaior7"
+      ]
+    },
+    {
+      "id": "Placeholder91",
+      "name": "Placeholder 91",
+      "description": "",
+      "x": -2024,
+      "y": 636,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "FiltroMaior8"
+      ]
+    },
+    {
+      "id": "Placeholder32",
+      "name": "Placeholder 32",
+      "description": "",
+      "x": -1648,
+      "y": 1604,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "Placeholder43"
+      ]
+    },
+    {
+      "id": "Placeholder31",
+      "name": "Placeholder 31",
+      "description": "",
+      "x": -1776,
+      "y": 1732,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "Placeholder32"
+      ]
+    },
+    {
+      "id": "Placeholder21",
+      "name": "Placeholder 21",
+      "description": "",
+      "x": -1904,
+      "y": 1856,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "Placeholder31"
+      ]
+    },
+    {
+      "id": "Placeholder42",
+      "name": "Placeholder 42",
+      "description": "",
+      "x": -2044,
+      "y": 1700,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "Placeholder41"
+      ]
+    },
+    {
+      "id": "Placeholder43",
+      "name": "Placeholder 43",
+      "description": "",
+      "x": -1136,
+      "y": 1792,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "FocoUV9"
+      ]
+    },
+    {
+      "id": "Placeholder22",
+      "name": "Placeholder 22",
+      "description": "",
+      "x": -1168,
+      "y": -1984,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "RajadaDeEsporos3"
+      ]
+    },
+    {
+      "id": "ReliquiasClareira",
+      "name": "Veio da Clareira",
+      "description": "Mais relíquias escondidas na Clareira.",
+      "x": 768,
+      "y": 392,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [
+        "relics"
+      ],
+      "links": [
+        "FragmentosMicelioLunar1"
+      ]
+    },
+    {
+      "id": "FragmentosMicelioLunar1",
+      "name": "Colheita de Micélio Lunar",
+      "description": "Cada relíquia de Micélio Lunar rende mais fragmentos.",
+      "x": 664,
+      "y": 140,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [
+        "fragments"
+      ],
+      "links": [
+        "Mother"
+      ]
+    },
+    {
+      "id": "FragmentosMicelioLunar2",
+      "name": "Mestre do Micélio Lunar",
+      "description": "Cada relíquia de Micélio Lunar rende muito mais fragmentos.",
+      "x": 840,
+      "y": 180,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "fragments"
+      ],
+      "links": [
+        "FragmentosMicelioLunar1"
+      ]
+    },
+    {
+      "id": "Placeholder88",
+      "name": "Placeholder 88",
+      "description": "",
+      "x": 148,
+      "y": 2116,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "Placeholder85"
+      ]
+    },
+    {
+      "id": "Placeholder85",
+      "name": "Placeholder 85",
+      "description": "",
+      "x": 136,
+      "y": 1936,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "ValorDosEsporos7"
+      ]
+    },
+    {
+      "id": "Placeholder84",
+      "name": "Placeholder 84",
+      "description": "",
+      "x": 160,
+      "y": 2296,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "Placeholder88"
+      ]
+    },
+    {
+      "id": "PoteMaior3",
+      "name": "Pote Fundo I",
+      "description": "Cada pote cabe mais esporos.",
+      "x": 856,
+      "y": -88,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "storage"
+      ],
+      "links": [
+        "PoteMaior1"
+      ]
+    },
+    {
+      "id": "PoteMaior5",
+      "name": "Pote Fundo II",
+      "description": "Cada pote cabe mais esporos.",
+      "x": 1036,
+      "y": -108,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "storage"
+      ],
+      "links": [
+        "PoteMaior3"
+      ]
+    },
+    {
+      "id": "PoteMaior6",
+      "name": "Pote Fundo III",
+      "description": "Cada pote cabe mais esporos.",
+      "x": 1212,
+      "y": -128,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "storage"
+      ],
+      "links": [
+        "PoteMaior5"
+      ]
+    },
+    {
+      "id": "PoteMaior8",
+      "name": "Pote Fundo IV",
+      "description": "Cada pote cabe mais esporos.",
+      "x": 1392,
+      "y": -148,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "storage"
+      ],
+      "links": [
+        "PoteMaior6"
+      ]
+    },
+    {
+      "id": "PoteMaior10",
+      "name": "Pote Fundo V",
+      "description": "Cada pote cabe mais esporos.",
+      "x": 1572,
+      "y": -164,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "storage"
+      ],
+      "links": [
+        "PoteMaior8"
+      ]
+    },
+    {
+      "id": "PulsoCrescente1",
+      "name": "Pulso Crescente",
+      "description": "Cada estouro passa mais força pro próximo.",
+      "x": -1292,
+      "y": -536,
+      "maxLevel": 4,
+      "placeholder": false,
+      "categories": [
+        "breath"
+      ],
+      "links": [
+        "VagaLumes1"
+      ]
+    },
+    {
+      "id": "PulsoForte",
+      "name": "Pulso Forte",
+      "description": "A cadeia ganha bem mais força a cada salto.",
+      "x": -1500,
+      "y": -496,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "breath"
+      ],
+      "links": [
+        "PulsoCrescente1"
+      ]
+    },
+    {
+      "id": "PulsoContinuo1",
+      "name": "Pulso Contínuo",
+      "description": "A cadeia ganha ainda mais força a cada salto.",
+      "x": -1356,
+      "y": -344,
+      "maxLevel": 4,
+      "placeholder": false,
+      "categories": [
+        "breath"
+      ],
+      "links": [
+        "VagaLumes1"
+      ]
+    },
+    {
+      "id": "RessonanciaProfunda",
+      "name": "Ressonância Profunda",
+      "description": "A cadeia ganha muito mais força a cada salto: os esporos voam bem mais longe.",
+      "x": -1556,
+      "y": -276,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "breath"
+      ],
+      "links": [
+        "PulsoContinuo1"
+      ]
+    },
+    {
+      "id": "VagaLumes1",
+      "name": "Vaga-lume Ajudante I",
+      "description": "Mais um vaga-lume recolhe esporos para você.",
+      "x": -1128,
+      "y": -468,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "suction"
+      ],
+      "links": [
+        "RajadaDeEsporos1"
+      ]
+    },
+    {
+      "id": "VagaLumes2",
+      "name": "Vaga-lume Ajudante II",
+      "description": "Mais um vaga-lume recolhe esporos para você.",
+      "x": -1392,
+      "y": -148,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "suction"
+      ],
+      "links": [
+        "VagaLumes1"
+      ]
+    },
+    {
+      "id": "Placeholder26",
+      "name": "Placeholder 26",
+      "description": "",
+      "x": 1192,
+      "y": -1036,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "Placeholder37"
+      ]
+    },
+    {
+      "id": "Placeholder49",
+      "name": "Placeholder 49",
+      "description": "",
+      "x": 624,
+      "y": -832,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "EsporosFartos1"
+      ]
+    },
+    {
+      "id": "Placeholder37",
+      "name": "Placeholder 37",
+      "description": "",
+      "x": 760,
+      "y": -956,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "Placeholder49"
+      ]
+    },
+    {
+      "id": "Placeholder20",
+      "name": "Placeholder 20",
+      "description": "",
+      "x": 1824,
+      "y": -664,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "VendaRapida9"
+      ]
+    },
+    {
+      "id": "VendaRapida1",
+      "name": "Barraca Maior I",
+      "description": "Mais espaço no balcão: a venda anda mais depressa.",
+      "x": 712,
+      "y": -480,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "sale"
+      ],
+      "links": [
+        "PoteMaior1"
+      ]
+    },
+    {
+      "id": "VendaRapida3",
+      "name": "Barraca Maior II",
+      "description": "Mais espaço no balcão: a venda anda mais depressa.",
+      "x": 864,
+      "y": -580,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "sale"
+      ],
+      "links": [
+        "VendaRapida1"
+      ]
+    },
+    {
+      "id": "VendaRapida5",
+      "name": "Barraca Maior III",
+      "description": "Mais espaço no balcão: a venda anda mais depressa.",
+      "x": 1012,
+      "y": -684,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "sale"
+      ],
+      "links": [
+        "VendaRapida3"
+      ]
+    },
+    {
+      "id": "VendaRapida7",
+      "name": "Barraca Maior IV",
+      "description": "Mais espaço no balcão: a venda anda mais depressa.",
+      "x": 1160,
+      "y": -784,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "sale"
+      ],
+      "links": [
+        "VendaRapida5"
+      ]
+    },
+    {
+      "id": "VendaRapida2",
+      "name": "Freguês Apressado I",
+      "description": "Os fregueses compram mais depressa.",
+      "x": 928,
+      "y": -472,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "sale"
+      ],
+      "links": [
+        "VendaRapida1"
+      ]
+    },
+    {
+      "id": "VendaRapida4",
+      "name": "Freguês Apressado II",
+      "description": "Os fregueses compram mais depressa.",
+      "x": 1088,
+      "y": -552,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "sale"
+      ],
+      "links": [
+        "VendaRapida2"
+      ]
+    },
+    {
+      "id": "VendaRapida6",
+      "name": "Freguês Apressado III",
+      "description": "Os fregueses compram mais depressa.",
+      "x": 1248,
+      "y": -636,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "sale"
+      ],
+      "links": [
+        "VendaRapida4"
+      ]
+    },
+    {
+      "id": "VendaRapida8",
+      "name": "Freguês Apressado IV",
+      "description": "Os fregueses compram mais depressa.",
+      "x": 1408,
+      "y": -716,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "sale"
+      ],
+      "links": [
+        "VendaRapida6"
+      ]
+    },
+    {
+      "id": "VendaRapida9",
+      "name": "Freguês Apressado V",
+      "description": "Os fregueses compram mais depressa.",
+      "x": 1568,
+      "y": -800,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "sale"
+      ],
+      "links": [
+        "VendaRapida8"
+      ]
+    },
+    {
+      "id": "VendaRapida10",
+      "name": "Freguês Apressado VI",
+      "description": "Os fregueses compram mais depressa.",
+      "x": 1728,
+      "y": -880,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "sale"
+      ],
+      "links": [
+        "VendaRapida9"
+      ]
+    },
+    {
+      "id": "VendaRapida11",
+      "name": "Freguês Apressado VII",
+      "description": "Os fregueses compram mais depressa.",
+      "x": 1888,
+      "y": -964,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "sale"
+      ],
+      "links": [
+        "VendaRapida10"
+      ]
+    },
+    {
+      "id": "VendaRapida12",
+      "name": "Freguês Apressado VIII",
+      "description": "Os fregueses compram mais depressa.",
+      "x": 2048,
+      "y": -1044,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "sale"
+      ],
+      "links": [
+        "VendaRapida11"
+      ]
+    },
+    {
+      "id": "VendaRapida13",
+      "name": "Freguês Apressado IX",
+      "description": "Os fregueses compram mais depressa.",
+      "x": 2208,
+      "y": -1124,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "sale"
+      ],
+      "links": [
+        "VendaRapida12"
+      ]
+    },
+    {
+      "id": "Placeholder12",
+      "name": "Placeholder 12",
+      "description": "",
+      "x": 1968,
+      "y": -1508,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "VendaRapida12",
+        "Placeholder11"
+      ]
+    },
+    {
+      "id": "Mother",
+      "name": "Micélio",
+      "description": "O coração do Micélio: toda a árvore cresce daqui.",
+      "x": 0,
+      "y": 0,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [],
+      "links": []
+    },
+    {
+      "id": "PressaoDeEmergencia",
+      "name": "Pressão de Emergência",
+      "description": "Com o filtro a partir de 90%, o sopro carrega 50% mais rápido enquanto a expedição ainda não terminou.",
+      "x": -1364,
+      "y": 312,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "breath",
+        "filter"
+      ],
+      "links": [
+        "FiltroMaior3"
+      ]
+    },
+    {
+      "id": "Placeholder78",
+      "name": "Placeholder 78",
+      "description": "",
+      "x": -1540,
+      "y": 352,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "PressaoDeEmergencia"
+      ]
+    },
+    {
+      "id": "EsporosFartos1",
+      "name": "Esporos Fartos",
+      "description": "Os cogumelos soltam mais esporos ao florescer.",
+      "x": 404,
+      "y": -760,
+      "maxLevel": 4,
+      "placeholder": false,
+      "categories": [
+        "breath"
+      ],
+      "links": [
+        "PoteMaior1"
+      ]
+    },
+    {
+      "id": "Placeholder9",
+      "name": "Placeholder 9",
+      "description": "",
+      "x": 1056,
+      "y": -1176,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "ColetaSeletiva"
+      ]
+    },
+    {
+      "id": "Placeholder6",
+      "name": "Placeholder 6",
+      "description": "",
+      "x": 1008,
+      "y": -1440,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "Placeholder10"
+      ]
+    },
+    {
+      "id": "Placeholder17",
+      "name": "Placeholder 17",
+      "description": "",
+      "x": 1736,
+      "y": -1508,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "Placeholder16",
+        "VendaRapida11"
+      ]
+    },
+    {
+      "id": "ColetaSeletiva",
+      "name": "Coleta Seletiva",
+      "description": "Com a mochila cheia, um esporo mais valioso substitui o mais barato que você está carregando.",
+      "x": 804,
+      "y": -1148,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "suction",
+        "storage"
+      ],
+      "links": [
+        "EsporosGordos1"
+      ]
+    },
+    {
+      "id": "Placeholder10",
+      "name": "Placeholder 10",
+      "description": "",
+      "x": 908,
+      "y": -1296,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "ColetaSeletiva"
+      ]
+    },
+    {
+      "id": "Placeholder16",
+      "name": "Placeholder 16",
+      "description": "",
+      "x": 1420,
+      "y": -1576,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "EsporosGordos1"
+      ]
+    },
+    {
+      "id": "Placeholder11",
+      "name": "Placeholder 11",
+      "description": "",
+      "x": 1540,
+      "y": -1708,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "Placeholder16"
+      ]
+    },
+    {
+      "id": "Placeholder8",
+      "name": "Placeholder 8",
+      "description": "",
+      "x": 1660,
+      "y": -1844,
+      "maxLevel": 1,
+      "placeholder": true,
+      "categories": [],
+      "links": [
+        "Placeholder11"
+      ]
+    },
+    {
+      "id": "Circulo",
+      "name": "Círculo de Fada",
+      "description": "Os cogumelos passam a nascer em círculos.",
+      "x": 792,
+      "y": 676,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [],
+      "links": [
+        "CogumelosClareira"
+      ]
+    },
+    {
+      "id": "GrandeCirculoComCentro",
+      "name": "Grande com um no Meio",
+      "description": "Nascem também círculos grandes com um cogumelo no centro.",
+      "x": 1068,
+      "y": 908,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [],
+      "links": [
+        "CogumelosBosqueUmido"
+      ]
+    },
+    {
+      "id": "CirculoGrande",
+      "name": "Círculo Grande",
+      "description": "Nascem também círculos grandes de cogumelos.",
+      "x": 1340,
+      "y": 1140,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [],
+      "links": [
+        "CogumelosGrutaLumen"
+      ]
+    },
+    {
+      "id": "TrilhaDeFada",
+      "name": "Trilha de Fada",
+      "description": "Fileiras de cogumelos ligam um grupo ao outro, e a cadeia viaja por elas.",
+      "x": 1420,
+      "y": 1576,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [],
+      "links": [
+        "CogumelosGrutaDaGeada"
+      ]
+    },
+    {
+      "id": "UnlockPuffball",
+      "name": "Nova Espécie: Bufa",
+      "description": "Bufa passa a nascer em: Clareira, Bosque Úmido.",
+      "x": 0,
+      "y": -680,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [],
+      "links": [
+        "Mother"
+      ]
+    },
+    {
+      "id": "UnlockCrystal",
+      "name": "Nova Espécie: Cristal",
+      "description": "Cristal passa a nascer em: Gruta Lúmen, Gruta da Geada, Caldeira Rubra, Coração do Micélio.",
+      "x": 0,
+      "y": -896,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [],
+      "links": [
+        "UnlockPuffball"
+      ]
+    },
+    {
+      "id": "UnlockCoral",
+      "name": "Nova Espécie: Coral",
+      "description": "Coral passa a nascer em: Bosque Úmido, Gruta Lúmen.",
+      "x": 0,
+      "y": -1112,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [],
+      "links": [
+        "UnlockCrystal"
+      ]
+    },
+    {
+      "id": "UnlockLumen",
+      "name": "Nova Espécie: Lúmen",
+      "description": "Lúmen passa a nascer em: Gruta Lúmen, Gruta da Geada, Caldeira Rubra, Coração do Micélio.",
+      "x": 0,
+      "y": -1328,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [],
+      "links": [
+        "UnlockCoral"
+      ]
+    },
+    {
+      "id": "UnlockIceCap",
+      "name": "Nova Espécie: Chapéu de Geada",
+      "description": "Chapéu de Geada passa a nascer em: Gruta da Geada.",
+      "x": 0,
+      "y": -1544,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [],
+      "links": [
+        "UnlockLumen"
+      ]
+    },
+    {
+      "id": "UnlockFireCap",
+      "name": "Nova Espécie: Chapéu de Brasa",
+      "description": "Chapéu de Brasa passa a nascer em: Caldeira Rubra.",
+      "x": 0,
+      "y": -1760,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [],
+      "links": [
+        "UnlockIceCap"
+      ]
+    },
+    {
+      "id": "UnlockRei",
+      "name": "Nova Espécie: Rei",
+      "description": "Rei passa a nascer em: Coração do Micélio.",
+      "x": 0,
+      "y": -1976,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [],
+      "links": [
+        "UnlockFireCap"
+      ]
+    },
+    {
+      "id": "SoproMedio",
+      "name": "Sopro Médio",
+      "description": "O sopro carregado chega à força média: estoura Coral e Cristal.",
+      "x": -760,
+      "y": -712,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "breath"
+      ],
+      "links": [
+        "BicoLongo1"
+      ]
+    },
+    {
+      "id": "CargaRapidaInicial",
+      "name": "Pulmão de Abóbora I",
+      "description": "O sopro carrega mais depressa.",
+      "x": -704,
+      "y": -492,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "breath"
+      ],
+      "links": [
+        "BocaLarga1"
+      ]
+    },
+    {
+      "id": "LegadoFragmentosClareira",
+      "name": "Fragmentos da Clareira",
+      "description": "+1000% de fragmentos por relíquia trazida da Clareira.",
+      "x": 72,
+      "y": 1036,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "fragments"
+      ],
+      "links": [
+        "ValorDosEsporos3"
+      ]
+    },
+    {
+      "id": "LegadoFragmentosBosque",
+      "name": "Fragmentos do Bosque Úmido",
+      "description": "+1000% de fragmentos por relíquia trazida do Bosque Úmido.",
+      "x": 96,
+      "y": 1396,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "fragments"
+      ],
+      "links": [
+        "ValorDosEsporos5"
+      ]
+    },
+    {
+      "id": "LegadoFragmentosLumen",
+      "name": "Fragmentos da Gruta Lúmen",
+      "description": "+1000% de fragmentos por relíquia trazida da Gruta Lúmen.",
+      "x": 124,
+      "y": 1756,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "fragments"
+      ],
+      "links": [
+        "ValorDosEsporos7"
+      ]
+    },
+    {
+      "id": "CogumelosCaldeiraRubra",
+      "name": "Canteiro da Brasa Ardente",
+      "description": "Nascem mais cogumelos na Brasa Ardente a cada expedição.",
+      "x": 1300,
+      "y": 1896,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [],
+      "links": [
+        "ValorDosEsporos9"
+      ]
+    },
+    {
+      "id": "FragmentosCaldeiraRubra1",
+      "name": "Colheita da Brasa Ardente",
+      "description": "Cada relíquia da Brasa Ardente rende mais fragmentos.",
+      "x": 2072,
+      "y": 440,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [
+        "fragments"
+      ],
+      "links": [
+        "FragmentosEstilhacoDeGeada2"
+      ]
+    },
+    {
+      "id": "FragmentosCaldeiraRubra2",
+      "name": "Mestre da Brasa Ardente",
+      "description": "Cada relíquia da Brasa Ardente rende muito mais fragmentos.",
+      "x": 2248,
+      "y": 480,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "fragments"
+      ],
+      "links": [
+        "FragmentosCaldeiraRubra1"
+      ]
+    },
+    {
+      "id": "ReliquiasCaldeiraRubra",
+      "name": "Veio da Brasa Ardente",
+      "description": "Mais relíquias escondidas na Brasa Ardente.",
+      "x": 2048,
+      "y": 1044,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [
+        "relics"
+      ],
+      "links": [
+        "FragmentosCaldeiraRubra1"
+      ]
+    },
+    {
+      "id": "CogumelosCoracaoMicelio",
+      "name": "Canteiro do Coração do Micélio",
+      "description": "Nascem mais cogumelos no Coração do Micélio a cada expedição.",
+      "x": 1504,
+      "y": 2196,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [],
+      "links": [
+        "ValorDosEsporos11"
+      ]
+    },
+    {
+      "id": "FragmentosCoracaoMicelio1",
+      "name": "Colheita do Coração do Micélio",
+      "description": "Cada relíquia do Coração do Micélio rende mais fragmentos.",
+      "x": 2424,
+      "y": 516,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [
+        "fragments"
+      ],
+      "links": [
+        "FragmentosCaldeiraRubra2"
+      ]
+    },
+    {
+      "id": "FragmentosCoracaoMicelio2",
+      "name": "Mestre do Coração do Micélio",
+      "description": "Cada relíquia do Coração do Micélio rende muito mais fragmentos.",
+      "x": 2600,
+      "y": 552,
+      "maxLevel": 1,
+      "placeholder": false,
+      "categories": [
+        "fragments"
+      ],
+      "links": [
+        "FragmentosCoracaoMicelio1"
+      ]
+    },
+    {
+      "id": "ReliquiasCoracaoMicelio",
+      "name": "Veio do Coração do Micélio",
+      "description": "Mais relíquias escondidas no Coração do Micélio.",
+      "x": 2372,
+      "y": 1208,
+      "maxLevel": 10,
+      "placeholder": false,
+      "categories": [
+        "relics"
+      ],
+      "links": [
+        "FragmentosCoracaoMicelio1"
+      ]
+    }
+  ],
+  "regions": [
+    {
+      "id": "Clareira",
+      "name": "Clareira",
+      "tier": 1
+    },
+    {
+      "id": "BosqueUmido",
+      "name": "Bosque Úmido",
+      "tier": 2
+    },
+    {
+      "id": "GrutaLumen",
+      "name": "Gruta Lúmen",
+      "tier": 3
+    },
+    {
+      "id": "GrutaDaGeada",
+      "name": "Gruta da Geada",
+      "tier": 4
+    },
+    {
+      "id": "CaldeiraRubra",
+      "name": "Caldeira Rubra",
+      "tier": 5
+    },
+    {
+      "id": "CoracaoMicelio",
+      "name": "Coração do Micélio",
+      "tier": 6
+    }
+  ]
+}

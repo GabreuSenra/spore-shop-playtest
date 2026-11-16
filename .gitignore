@@ -1,0 +1,9 @@
+.test-user/
+dist/
+*.log
+*.zip
+preview-*.jpg
+.env
+.env.*
+api/apps-script/.clasp.json
+api/apps-script/.clasprc.json

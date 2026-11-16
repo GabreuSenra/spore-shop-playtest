@@ -1,0 +1,17 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="referrer" content="no-referrer"></head><body>
+<script>
+(function(){
+  'use strict';
+  var config = <?!= JSON.stringify(bridgeConfig).replace(/</g, '\\u003c') ?>;
+  function reply(message){window.top.postMessage(Object.assign({channel:config.channel},message),config.origin);}
+  window.addEventListener('message',function(event){
+    if(config.error || event.origin!==config.origin || event.source!==window.top)return;
+    var data=event.data;
+    if(!data || data.channel!==config.channel || data.type!=='spore-read' || typeof data.request_id!=='string')return;
+    google.script.run.withSuccessHandler(function(body){reply({type:'spore-result',request_id:data.request_id,body:body});})
+      .withFailureHandler(function(){reply({type:'spore-result',request_id:data.request_id,body:{ok:false,error:'rpc_failed'}});})
+      .readPlaytestPage({token:data.token,cursor:data.cursor||''});
+  });
+  reply({type:'spore-ready',error:config.error});
+})();
+</script></body></html>
