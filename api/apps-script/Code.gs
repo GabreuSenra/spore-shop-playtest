@@ -199,7 +199,19 @@ function diagnosePlaytest() {
   var config=config_(),cursor='',total=0,pages=0;
   do {
     var page=readPlaytestPage({token:config.read,cursor:cursor});pages++;
-    if (!page.ok) {console.log(JSON.stringify({ok:false,error:page.error,row:page.row,reason:page.reason}));return;}
+    if (!page.ok) {
+      var report={ok:false,error:page.error,row:page.row,reason:page.reason};
+      if (page.reason==='identity_mismatch') {
+        var sheet=sheet_(config.id),row=sheet.getRange(page.row,1,1,PLAYTEST_.headers.length).getValues()[0];
+        var payload=JSON.parse(row.slice(18).map(function(cell){return cell ? String(cell).slice(2) : '';}).join(''));
+        report.id_matches=payload.run_id===row[0];
+        report.column_revision=Number(row[1]);report.payload_revision=payload.revision;
+        report.column_run_number=Number(row[4]);report.payload_run_number=payload.run_number;
+        var found=sheet.getRange(2,1,sheet.getLastRow()-1,1).createTextFinder(payload.run_id).matchEntireCell(true).useRegularExpression(false).findNext();
+        report.payload_id_found_at_row=found ? found.getRow() : null;
+      }
+      console.log(JSON.stringify(report));return;
+    }
     total+=page.runs.length;cursor=page.next_cursor||'';
   } while (cursor && pages<500);
   console.log(JSON.stringify({ok:true,runs:total,pages:pages,complete:!cursor}));

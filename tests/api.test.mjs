@@ -106,3 +106,12 @@ test('truncated payloads and identity changes produce safe precise diagnostics w
  }
  const e=googleEnvironment();e.setup();e.state.activeEmail='';assert.throws(()=>e.context.diagnosePlaytest(),/proprietaria/);
 });
+
+test('owner diagnosis distinguishes a swapped ID from a revision mismatch without printing IDs or credentials',()=>{
+ const e=googleEnvironment();e.setup();e.send(run());e.send(run({run_id:id(99),run_number:2}));
+ const reports=[];e.context.console.log=text=>reports.push(JSON.parse(text));
+ e.cells[1][1]=8;e.context.diagnosePlaytest();assert.equal(reports[0].id_matches,true);assert.equal(reports[0].column_revision,8);assert.equal(reports[0].payload_revision,1);
+ e.cells[1][1]=1;e.cells[1][0]=id(99);e.cells[2][0]=id(1);e.context.diagnosePlaytest();
+ assert.equal(reports[1].id_matches,false);assert.equal(reports[1].payload_id_found_at_row,3);
+ const printed=JSON.stringify(reports);assert.equal(printed.includes(id(1)),false);assert.equal(printed.includes(e.properties.get('READ_TOKEN')),false);
+});
